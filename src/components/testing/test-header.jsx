@@ -4,6 +4,7 @@ function TestHeader(){
 
     return (
     <div className="test-header">
+        <div className="grid-container">
         <div className="part-name-section">
             <h4>Section 1: Reading and Writing</h4>
             <h5>Directions</h5>
@@ -31,6 +32,7 @@ function TestHeader(){
                 <h6>More</h6>
                 </div>
             </div>
+        </div>
         </div>
     </div>
     )
