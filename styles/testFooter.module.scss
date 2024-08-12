@@ -1,40 +1,12 @@
 
-:root{
-    --light-blue: #E6EDF8;
-    --blue: #324DC7;
-    --dark: #1E1E1E;
-    --default-margin-sides: 3.2rem;
-    --header-4: 2rem;
-    --header-5: 1.5rem;
-    --header-6: 1.2rem;
-    
-}
 
 
-* {
-    margin: 0;
-    font-size: 62.5%;
-    font-family: Roboto;
-    color: var(--dark);
-}
 
-h4{
-    font-size: var(--header-4);
-    font-weight: 450;
-    text-overflow: ellipsis;
-    overflow: hidden; 
-    white-space: nowrap;
-}
-h5{
-    font-size: var(--header-5);
-    font-weight: 450;
-    
-}
-h6{
-    font-size: var(--header-6);
-    font-weight: 450;
-    margin-top: 0.6rem;
-}
+
+
+
+
+
 
 .test-header{
 
@@ -45,8 +17,8 @@ h6{
 .grid-container{
     
     display: grid;   
-    padding-left: 3.2rem;
-    padding-right: 3.2rem;
+    padding-left: var(--default-margin-sides);
+    padding-right: var(--default-margin-sides);
     padding-top: 1.3rem;
     padding-bottom: 1.3rem ;
     grid-template-columns: repeat(12, 1fr);
@@ -89,7 +61,8 @@ h6{
 
 
 .highlights-and-more{
-    grid-column: span 4;    
+    grid-column: span 4;
+    padding-bottom: 0.8rem;    
     display: flex;
     flex-direction: row;
     gap: 1rem;

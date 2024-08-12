@@ -1,5 +1,5 @@
 import React from "react";
-
+import styles from '../../../styles/TestFooter.module.scss'
 
 function TestFooter(){
     return (
