@@ -1,133 +1,80 @@
+@use 'variables';
+@use 'sass:math';
 
-
-
-
-
-
-
-
-
-
-.test-header{
-
-    background-color: var(--light-blue);
-    position:absolute;  
-    width: 100%;
-}
-.grid-container{
-    
-    display: grid;   
-    padding-left: var(--default-margin-sides);
-    padding-right: var(--default-margin-sides);
-    padding-top: 1.3rem;
-    padding-bottom: 1.3rem ;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 1fr;
-    height: 6rem;
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
 }
 
-.test-header svg{
-    height: 1.7rem;
-}
-.part-name-section{
-    grid-column: span 4;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    justify-content: center;
-    
-}
 
-.timer-section{
-    grid-column: span 4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    gap: 1.5rem;
-}
-
-.timer-section button{
-    width: fit-content;
-    text-decoration: none;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    border-radius: 999rem;
-    border: 0.1rem solid var(--dark);
-    background-color: rgb(0,0,0,0);
+@mixin darkButtons(){
     cursor: pointer;
+    h5{
+        color: white;
+        font-weight: 700;
+    }
 }
 
 
-
-.highlights-and-more{
+.section{
     grid-column: span 4;
-    padding-bottom: 0.8rem;    
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    align-items: end;
-    justify-content: end;
-}
-
-.highlights-section{
-    
     display: flex;
     flex-direction: column;
-    align-items: end;
-    justify-content: end;
+    justify-content: space-around;
+    gap: pxToRem(20px);
 }
 
-.more-section{
+
+.testFooter { 
     
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
-}
-
-.highlight-icons{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-
-.test-footer { 
     left:0px;
     bottom:0px;
+    position: absolute;
+    background-color: variables.$light-blue-color;
+    width: 100%;
+    svg{     
+        height: pxToRem(20px);
+    }
+}
+
+.gridContainer{   
+    display: grid;   
+    padding-left: variables.$default-test-margin-sides;
+    padding-right: variables.$default-test-margin-sides;
+    padding-top: pxToRem(15px);
+    padding-bottom: pxToRem(15px);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
 }
 
 
-#test-questions-button{
-    background-color: var(--dark);
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
+
+#testQuestionsButton{
     border: none;
-    border-radius: 0.6rem;
+    width: fit-content;
+    align-self: center;
+    background-color: variables.$main-dark-color;
+    padding-right: pxToRem(16px);
+    padding-left: pxToRem(16px);
+    padding-top: pxToRem(10px);
+    padding-bottom: pxToRem(10px);
+    border-radius: pxToRem(5px);
+    @include darkButtons();
 }
 
-#test-questions-button h5{
-    color: white;
-    font-weight: 700;
 
-}
-
-#next-sat-button{
-   background-color: var(--blue);
-   padding-top: 0.8rem;
-   padding-bottom: 0.8rem;
+#nextQuestionButton{
+   background-color: variables.$blue-color; 
    border: none;
    border-radius: 999rem;
-   padding-left: 2.5rem;
-   padding-right: 2.5rem;
-   padding-top: 1.2rem;
-   padding-bottom: 1.2rem;
+   padding-left: pxToRem(24px);
+   padding-right: pxToRem(24px);
+   padding-top: pxToRem(12px);
+   padding-bottom: pxToRem(12px);
    align-self: flex-end;
-}
-
-#next-sat-button h5{
-    color: white;
-    font-weight: 700;
-    
+   @include darkButtons();
+   
+   h5{
+    user-select: none;
+   }
 }
 

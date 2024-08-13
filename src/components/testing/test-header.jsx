@@ -4,7 +4,7 @@ import styles from '../../../styles/testHeader.module.scss'
 function TestHeader(){
 
     return (
-    <div className={styles.testHeader}>
+    <header className={styles.testHeader}>
         <div className={styles.gridContainer}>
             <div className={styles.section}>
                 <h4>Section 1: Reading and Writing</h4>
@@ -42,7 +42,7 @@ function TestHeader(){
                     </div>
                 </div>
         </div>
-    </div>
+    </header>
     )
 }
 

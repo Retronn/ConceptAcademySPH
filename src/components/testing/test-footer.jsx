@@ -3,20 +3,20 @@ import styles from '../../../styles/TestFooter.module.scss'
 
 function TestFooter(){
     return (
-    <footer className="test-header test-footer">
-        <div className="grid-container">
-            <div className="part-name-section">
+    <footer className={styles.testFooter}>
+        <div className={styles.gridContainer}>
+            <div className={styles.section}>
                 <h4>Alexandr Tkachyov</h4>
                 
             </div>
 
-            <div className="timer-section">
-                <button id="test-questions-button"><h5>Question 1 of 27</h5></button>
+            <div className={styles.section}>
+                <button id={styles.testQuestionsButton}><h5>Question 1 of 27</h5></button>
             </div>
 
 
-            <div className="timer-section">
-                <button id="next-sat-button"><h5>Next</h5></button>
+            <div className={styles.section}>
+                <button id={styles.nextQuestionButton}><h5>Next</h5></button>
             </div>
         </div>
     </footer>

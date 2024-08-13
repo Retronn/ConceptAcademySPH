@@ -10,7 +10,7 @@
 .testHeader{
     background-color: variables.$light-blue-color;
     width: 100%;
-    & svg{     
+    svg{     
         height: pxToRem(20px);
     }
 }
@@ -23,7 +23,6 @@
     padding-bottom: pxToRem(15px);
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr;
-    
 }
 
 
@@ -37,13 +36,43 @@
 }
 
 
+.textWithIcon{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    cursor: pointer;
+    h6 {
+        user-select: none;
+    }
+    
+}
+
+
+.moreSection{
+    display: flex;
+    gap: pxToRem(20px);
+    align-self: flex-end;
+}
+
+
+.centerIcons{
+    display: flex;
+    justify-content: center;
+
+}
+
+
 #timer{
     align-self: center;
 }
 
+
 #hideTimerButton{
     all: unset;
     align-self: center;
+    background-color: transparent;
+    cursor: pointer;
     width: fit-content;
     border-radius: 999rem;
     padding-left: pxToRem(16px);
@@ -51,35 +80,11 @@
     padding-top: pxToRem(2px);
     padding-bottom: pxToRem(2px);
     border: pxToRem(1px) solid variables.$main-dark-color;
-    background-color: transparent;
-    cursor: pointer;
-
 }
 
 
 
-.textWithIcon{
-    
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: end;
-}
 
-
-.moreSection{
-    display: flex;
-    flex-direction: row;
-    gap: pxToRem(28px);
-    align-self: flex-end;
-
-}
-
-.centerIcons{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
 
 
 
