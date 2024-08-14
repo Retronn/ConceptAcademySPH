@@ -1,0 +1,14 @@
+.testPassage{
+    background-color: red;
+    max-width: 66%;
+    flex-grow: 1;
+}
+
+
+#resizer{
+    
+    min-width: 6px;
+    background-color: blueviolet;
+    cursor:col-resize;
+    
+}

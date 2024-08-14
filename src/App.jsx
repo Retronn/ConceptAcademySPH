@@ -4,7 +4,7 @@ import TestFooter from "./components/testing/test-footer";
 import TestBody from "./components/testing/test-body";
 
 function App(){
-  return <div>
+  return <div className="App">
     <TestHeader/>
     <TestBody/>
     <TestFooter/>
