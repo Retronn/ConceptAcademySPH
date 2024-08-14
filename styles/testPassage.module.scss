@@ -1,7 +1,8 @@
 .testPassage{
     background-color: red;
     max-width: 66%;
-    flex-grow: 1;
+    min-width: 33%;
+    flex-shrink: 0;
 }
 
 
