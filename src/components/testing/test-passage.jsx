@@ -4,7 +4,7 @@ import styles from '../../../styles/testPassage.module.scss'
 
 function TestPassage(){
 
-    const [passageWidth, setPassageWidth] = useState(505); // Initial width
+    const [passageWidth, setPassageWidth] = useState("50%"); // Initial width
     const passageRef = useRef(null);
   
     const handleResizeStart = (e) => {
