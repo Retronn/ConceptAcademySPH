@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
-import styles from '../../../styles/testPassage.module.scss';
-
+import styles from '../../styles/testPassage.module.scss';
+import TestPassageText from "./test-passage-text";
 function TestPassage() {
+  
   const [passageWidth, setPassageWidth] = useState("calc(50% - 6px)"); 
   const passageRef = useRef(null);
 
@@ -34,16 +35,7 @@ function TestPassage() {
   return (
     <>
       <div className={styles.testPassage} ref={passageRef} style={{ width: `${passageWidth}`}}>
-        <h6>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Aliquam imperdiet porta libero at sodales. Fusce imperdiet, 
-        ex non placerat sollicitudin, lectus massa feugiat odio, sed 
-        mattis risus arcu ut leo. Proin non congue nisl. Pellentesque 
-        sed pretium elit. Donec dictum tortor ac finibus malesuada. 
-        Sed porttitor bibendum lacus, id laoreet ante. Integer consectetur 
-        nec eros ac maximus. In vitae nulla euismod, feugiat mauris et, porta 
-        magna. Aliquam maximus vitae odio at viverra. Sed dui dui, ultrices 
-        ac elementum sed, vestibulum eget eros. Sed ullamcorper vitae libero nec feugiat.</h6>
+        <TestPassageText/>
       </div>
       <div id={styles.resizer} onMouseDown={handleResizeStart} />
     </>

@@ -5,6 +5,17 @@
     @return math.div($pxValue, 16px) * 1rem; 
 }
 
+@font-face {
+    font-family: 'DroidSerif';
+    src: url('../assets/fonts/DroidSerif-Regular-webfont.woff') format('woff'),
+         url('../assets/fonts/DroidSerif-Bold-webfont.woff') format('woff'),
+         url('../assets/fonts/DroidSerif-BoldItalic-webfont.woff') format('woff'),
+         url('../assets/fonts/DroidSerif-Italic-webfont.woff') format('woff');
+
+  }
+
+
+
 :root {
     --main-bg-color: brown;
   }
@@ -48,4 +59,15 @@ h6{
     flex-direction: column;
     position: relative;
     height: 100vh;
+}
+
+.testFont{
+    font-family: 'Noto Serif';
+    color: variables.$main-dark-color;
+    font-size: pxToRem(14px);
+    font-weight: 400;
+    word-spacing: pxToRem(0.5px);
+    //letter-spacing: pxToRem(-0.2px);
+    line-height: pxToRem(22px);
+    
 }
