@@ -1,0 +1,20 @@
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+.testPassage{
+    max-width: 66%;
+    min-width: 33%;
+    flex-shrink: 0;
+}
+
+
+#resizer{
+    
+    min-width: pxToRem(4px);
+    background-color: #888888;
+    cursor:col-resize;
+    
+}

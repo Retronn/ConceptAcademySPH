@@ -1,0 +1,80 @@
+@use 'variables';
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+
+@mixin darkButtons(){
+    cursor: pointer;
+    h5{
+        color: white;
+        font-weight: 700;
+    }
+}
+
+
+.section{
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: pxToRem(20px);
+}
+
+
+.testFooter { 
+    background-color: variables.$light-blue-color;
+    width: 100%;
+    svg{     
+        height: pxToRem(20px);
+    }
+}
+
+.gridContainer{   
+    display: grid;   
+    padding-left: variables.$default-test-margin-sides;
+    padding-right: variables.$default-test-margin-sides;
+    padding-top: pxToRem(15px);
+    padding-bottom: pxToRem(15px);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+}
+
+
+
+#testQuestionsButton{
+    border: none;
+    width: fit-content;
+    align-self: center;
+    background-color: variables.$main-dark-color;
+    padding-right: pxToRem(16px);
+    padding-left: pxToRem(16px);
+    padding-top: pxToRem(10px);
+    padding-bottom: pxToRem(10px);
+    border-radius: pxToRem(5px);
+    display: flex;
+    align-items: center;
+    gap: pxToRem(10px);
+    cursor: pointer;
+    @include darkButtons();
+}
+
+
+#nextQuestionButton{
+   background-color: variables.$blue-color; 
+   border: none;
+   border-radius: 999rem;
+   padding-left: pxToRem(24px);
+   padding-right: pxToRem(24px);
+   padding-top: pxToRem(12px);
+   padding-bottom: pxToRem(12px);
+   align-self: flex-end;
+   @include darkButtons();
+
+   h5{
+    user-select: none;
+   }
+}
+

@@ -1,0 +1,77 @@
+@use 'variables';
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+@font-face {
+    font-family: 'DroidSerif';
+    src: url('../assets/fonts/DroidSerif-Regular-webfont.woff') format('woff'),
+         url('../assets/fonts/DroidSerif-Bold-webfont.woff') format('woff'),
+         url('../assets/fonts/DroidSerif-BoldItalic-webfont.woff') format('woff'),
+         url('../assets/fonts/DroidSerif-Italic-webfont.woff') format('woff');
+
+  }
+
+
+
+:root {
+    --main-bg-color: brown;
+  }
+
+* {
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    color: variables.$main-dark-color;
+    ::selection{
+        background: variables.$test-selection-color;
+    }
+}
+
+
+h4{
+    font-size: variables.$header-4;
+    font-weight: 450;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+    
+}
+
+h5{
+    font-size: variables.$header-5;
+    font-weight: 450;
+    
+}
+
+h6{
+    font-size: variables.$header-6;
+    font-weight: 450;
+    margin-top: pxToRem(10px);
+}
+
+
+.App{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100vh;
+}
+
+.testFont{
+    font-family: 'Noto Serif';
+    color: variables.$main-dark-color;
+    font-size: pxToRem(14px);
+    font-weight: 400;
+    word-spacing: pxToRem(0.5px);
+    //letter-spacing: pxToRem(-0.2px);
+    line-height: pxToRem(22px);
+    
+}
+
+.arrow{
+    height: pxToRem(14px) !important;
+}

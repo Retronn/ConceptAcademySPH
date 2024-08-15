@@ -1,0 +1,102 @@
+@use 'variables';
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+
+
+.testHeader{
+    background-color: variables.$light-blue-color;
+    width: 100%;
+    svg{     
+        height: pxToRem(20px);
+    }
+}
+
+.gridContainer{   
+    display: grid;   
+    padding-left: variables.$default-test-margin-sides;
+    padding-right: variables.$default-test-margin-sides;
+    padding-top: pxToRem(15px);
+    padding-bottom: pxToRem(15px);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+}
+
+
+
+.section{
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: pxToRem(20px);
+}
+
+
+.textWithIcon{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    cursor: pointer;
+    h6 {
+        user-select: none;
+    }
+    
+}
+
+
+.moreSection{
+    display: flex;
+    gap: pxToRem(20px);
+    align-self: flex-end;
+}
+
+
+.centerIcons{
+    display: flex;
+    justify-content: center;
+
+}
+
+
+#timer{
+    align-self: center;
+}
+
+
+#hideTimerButton{
+    all: unset;
+    align-self: center;
+    background-color: transparent;
+    cursor: pointer;
+    width: fit-content;
+    border-radius: 999rem;
+    padding-left: pxToRem(16px);
+    padding-right: pxToRem(16px);
+    padding-top: pxToRem(2px);
+    padding-bottom: pxToRem(2px);
+    border: pxToRem(1px) solid variables.$main-dark-color;
+}
+
+
+
+.directions{
+    all:unset;
+    display: flex;
+    align-items: center;
+    gap: pxToRem(10px);
+    cursor: pointer;
+    h5{
+        font-weight: 500;
+        font-size: pxToRem(16px);
+    }
+}
+
+
+
+
+

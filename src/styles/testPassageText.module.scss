@@ -1,0 +1,26 @@
+@use 'variables';
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+
+#blurb{
+    margin-bottom: pxToRem(6px);
+}
+
+.passage{
+    margin-left: variables.$default-test-margin-sides;
+    margin-top: variables.$default-test-margin-sides;
+    margin-right: pxToRem(40px);
+    max-width: pxToRem(500px);
+    align-self: center;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
