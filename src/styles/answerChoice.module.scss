@@ -44,9 +44,9 @@
 }
 
 .answerCrossoutButton{
+    
     all: unset;
     cursor: pointer;
-    display: flex;
     align-items: center;
     height: pxToRem(44px);
     width: pxToRem(44px);
@@ -55,7 +55,9 @@
         font-size: pxToRem(12px);
         font-weight: 900;
         color: variables.$main-dark-color;
-        border: pxToRem(1px) solid variables.$main-dark-color;
+        border: pxToRem(1.5px) solid variables.$main-dark-color;
+        height: pxToRem(16px);
+        width: pxToRem(16px);    
         position: relative;
     }
     .answerLetter::after{
@@ -64,7 +66,6 @@
         height: pxToRem(1.5px);
         width: 150%;
         background-color: variables.$main-dark-color;
-        top: 50%;
-        
+        top: calc(50% - pxToRem(0.5px));      
     }
 }

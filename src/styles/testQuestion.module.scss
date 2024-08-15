@@ -37,11 +37,13 @@
 .questionNum{
     background-color: variables.$main-dark-color;
     height: 100%;
-    width: pxToRem(30px);
+    width: pxToRem(26px);
     display: flex;
     align-items: center;
     justify-content: center;
     h4{
+        font-size: pxToRem(18px);
+        font-weight: 700;
         color: white;
     }
 }
@@ -99,7 +101,7 @@
     path{
         fill: none;
         stroke: black;
-        stroke-width: 5;
+        stroke-width: 4;
       }
   }
 
@@ -112,5 +114,8 @@
 
   .question{
     margin-top: pxToRem(20px);
-    
+  }
+
+  .blueBackground{
+    background-color: variables.$blue-color;
   }

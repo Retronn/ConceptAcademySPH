@@ -67,8 +67,10 @@ h6{
     font-size: pxToRem(14px);
     font-weight: 400;
     word-spacing: pxToRem(0.5px);
-    //letter-spacing: pxToRem(-0.2px);
     line-height: pxToRem(22px);
+    i{
+        font-family: 'Noto Serif';
+    }
     
 }
 

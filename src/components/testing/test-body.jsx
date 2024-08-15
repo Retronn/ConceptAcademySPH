@@ -2,24 +2,32 @@ import React, {useState,useEffect, useRef} from "react";
 import TestPassage from "./test-passage";
 import TestQuestion from "./test-question";
 import styles from '../../styles/testBody.module.scss'
+import DashedBorders from "./static/dashed-borders";
 
 function TestBody(){
 
+    // Temporary storing the question
     const question = {
-        question: "Which choice completes text the text with the most logical and precise word or phrase?",
+        questionStatement: "Which choice completes text the text with the most logical and precise word or phrase?",
+        questionNumber: 1,
         answerChoices: {
             values: ["A","B","C","D"],
             contents: ["scholarly", "melodic", "jarring", "personal"],
-        }
+        },
+        passage: {
+            passageText: <>In recommending Bao Phi's collection <i>Sông I Sing</i>, a librarian noted that pieces by the spoken-word poet don't lose their ______ nature when printed: the language has the same pleasant musical quality on the page as it does when performed by Phi.</>,
+        },
     }
 
-    const [strokeSize, setStrokeSize] = useState(window.innerWidth/56-2);
+    // Hook for top and bottom dash borders' widths
+    const [bordersStrokeWidths, setBordersStrokeWidths] = useState(window.innerWidth/56-1.5);
 
-    const pathElement= useRef(null);
+
+    // Calculating top and bottom dash borders' widths
     useEffect(() => {
         const handleResize = () => {
-        const calculatedSize = window.innerWidth/56-2;
-        setStrokeSize(calculatedSize);
+        const calculatedSize = window.innerWidth/56-1.5;
+        setBordersStrokeWidths(calculatedSize);
         };
 
 
@@ -32,11 +40,9 @@ function TestBody(){
 
     return (
         <div className={styles.testBody}>
-            <svg className={styles.borderBox} viewBox='0 0 300 100' preserveAspectRatio='none'>
-                <path ref={pathElement} d='M0,0 L300,0 M0,100 L300,100' vectorEffect='non-scaling-stroke' style={{strokeDasharray: `${strokeSize}, 2`}}/>
-            </svg>
-            <TestPassage />
+            <TestPassage passage={question.passage}/>
             <TestQuestion question={question}/>
+            <DashedBorders childClass={styles.borderBox} bordersStrokeWidths={bordersStrokeWidths}/>
         </div>
     )
 }
