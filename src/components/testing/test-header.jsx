@@ -5,6 +5,8 @@ import ArrowIcon from "./static/arrow-icon";
 import HighlightIcon from "./static/highlight-icon";
 import NoteIcon from "./static/note-icon";
 import MoreIcon from "./static/more-icon";
+import TextWithIcons from "./static/text-with-icons";
+
 function TestHeader(){
 
     // Flipping the arrow on checking questions
@@ -16,22 +18,22 @@ function TestHeader(){
 
     const textsWithIcons = [
         {
-            icons: [<HighlightIcon/>, <NoteIcon/>],
+            icons: [<HighlightIcon key={1}/>, <NoteIcon key={2}/>],
             text: "Highlights & Notes",
             toHandle: handleHighlight,
         },
         {
-            icons: [<MoreIcon/>],
+            icons: [<MoreIcon key={1}/>],
             text: "More",
             toHandle: handleMore,
         }
     ]
 
     function handleHighlight(){
-
+        //Add highlight behaviour
     }
     function handleMore(){
-
+        //Add more behaviour
     }
 
     return (
@@ -65,32 +67,20 @@ function TestHeader(){
             </div>
             
 
-            <div className={styles.section}>
+            <div className={`${styles.section} ${styles.moreSection}`}>
 
-                <div className={styles.moreSection}>
+                {/* Buttons "Highlight" and "More" */}
+                {textsWithIcons.map((textsWithIcon,index)=>{
+                    return (<TextWithIcons 
+                                key={index} 
+                                icons={textsWithIcon.icons} 
+                                text={textsWithIcon.text} 
+                                textWithIconStyle={styles.textWithIcon} 
+                                centerIconsStyle={styles.centerIcons} 
+                                toHandle={textsWithIcon.toHandle}
+                            />)
+                })}
 
-                    <div className={styles.textWithIcon}>
-                            
-                        <div className={styles.centerIcons}>
-                            <HighlightIcon/>
-                            <NoteIcon/>
-                        </div>
-
-                        <h6>Highlights & Notes</h6>
-                            
-                    </div>
-
-
-                    <div className={styles.textWithIcon}>
-
-                        <div className={styles.centerIcons}>
-                            <MoreIcon/>
-                        </div>
-                        <h6>More</h6>
-
-                    </div>
-
-                </div>
             </div>
         </div>
     </header>

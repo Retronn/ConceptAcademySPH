@@ -51,9 +51,10 @@
 
 
 .moreSection{
-    display: flex;
+    flex-direction: row;
     gap: pxToRem(20px);
-    align-self: flex-end;
+    align-items: center;
+    justify-content: end;
 }
 
 
