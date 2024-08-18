@@ -8,7 +8,7 @@ import AnswerChoice from "./answer-choice";
 import LettersCrossedIcon from "./static/letters-crossed-icon";
 import BottomDashedBorder from "./static/bottom-dashed-border";
 import BookmarkIcon from "./static/bookmark-icon";
-
+import ScalingButton from "./scaling-button";
 
 
 
@@ -20,7 +20,10 @@ function TestQuestion(props){
         activeRedColor: "#ab2334",
         whiteColor: "#FFFFFF",
         blueColor: "#324DC7",
+        lightGrayColor : "#949494",
+        darkGrayColor : "#666666",
     }
+
     
     // Transferred Question Deconstruction
     const {values} = props.question.answerChoices;
@@ -52,7 +55,6 @@ function TestQuestion(props){
 
     // Refs for this component
     const infoRef = useRef(null);
-
 
     // Activating/Deactivating strikethrough options
     function toogleStrikethroughOptions(){
@@ -136,8 +138,11 @@ function TestQuestion(props){
     return (
         <div className={styles.container}>
 
+
+
             {/* Area with all question Elements */}
             <div className={styles.questionZone}>
+
 
                 {/* Area with question info and button */}
                 <div className={styles.infoArea} ref={infoRef}>

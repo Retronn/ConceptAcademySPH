@@ -8,6 +8,7 @@
     max-width: 66%;
     min-width: 33%;
     flex-shrink: 0;
+    position: relative;
 }
 
 
@@ -16,5 +17,6 @@
     min-width: pxToRem(4px);
     background-color: #888888;
     cursor:col-resize;
-    
+    position: relative;
 }
+

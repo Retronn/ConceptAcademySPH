@@ -12,8 +12,8 @@
 
 .passage{
     margin-left: variables.$default-test-margin-sides;
-    margin-top: variables.$default-test-margin-sides;
-    margin-right: pxToRem(40px);
+    margin-top: calc(variables.$default-test-margin-sides + pxToRem(16px));
+    margin-right: pxToRem(44px);
     max-width: pxToRem(500px);
     align-self: center;
 }

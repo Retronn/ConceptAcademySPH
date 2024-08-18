@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styles from '../../styles/TestFooter.module.scss'
+import styles from '../../styles/TestFooter.module.scss';
 
 import ArrowIcon from "./static/arrow-icon";
 
