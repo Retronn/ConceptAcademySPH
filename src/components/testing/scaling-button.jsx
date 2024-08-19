@@ -9,27 +9,45 @@ function ScalingButton(props){
         
         if(props.scalerId==="testPassageScaler"){
             console.log(props.resizePosition);
+            
 
-            if(props.resizePosition==="left"){
-                props.scaleObject.current.style.width= "calc(50% - 6px)";
-                props.setResizePosition("middle"); 
-            }
-            else{
+
+            if(props.resizePosition==="middle" || props.resizePosition==="part-right"){
                 props.scaleObject.current.style.width= "66%";
                 props.setResizePosition("right");
-                
+                props.setTransformer({
+                    passage: "(-1,-1)",
+                    question: "(-1,1)",
+                })
+            }
+            else{
+                props.scaleObject.current.style.width= "calc(50% - 6px)";
+                props.setResizePosition("middle"); 
+                props.setTransformer({
+                    passage: "(1,1)",
+                    question: "(-1,1)",
+                })
+
             }
         }
 
         else{
 
-            if(props.resizePosition==="middle"){
+            if(props.resizePosition==="middle" || props.resizePosition==="part-left"){
                 props.scaleObject.current.style.width= "33%";
                 props.setResizePosition("left");
+                props.setTransformer({
+                    passage: "(1,1)",
+                    question: "(1,-1)",
+                })
             }
-            else if(props.resizePosition==="right"){
+            else{
                 props.scaleObject.current.style.width= "calc(50% - 6px)";
                 props.setResizePosition("middle"); 
+                props.setTransformer({
+                    passage: "(1,1)",
+                    question: "(-1,1)",
+                })
             }
 
         }

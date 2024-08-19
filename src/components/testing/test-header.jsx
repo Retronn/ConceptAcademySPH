@@ -6,6 +6,8 @@ import HighlightIcon from "./static/highlight-icon";
 import NoteIcon from "./static/note-icon";
 import MoreIcon from "./static/more-icon";
 import TextWithIcons from "./static/text-with-icons";
+import TimerIcon from "./static/timer-icon";
+
 
 function TestHeader(){
 
@@ -15,6 +17,17 @@ function TestHeader(){
     function changeScaler(){
         setScaler(scaler*-1);
     }
+
+    const [timerDisplays, setTimerDisplays] = useState({
+        timer: "flex",
+        icon: "none",
+    });
+
+    const [timerButtonText, setTimerButtonText] = useState("Hide");
+    const [timerButtonUnderline, setTimerButtonUnderline] = useState("none");
+    const [timerButtonTextOpacity, setTimerButtonTextOpacity] = useState(1);
+    const [timerButtonTransparency, setTimerButtonTransparency] = useState("none");
+
 
     const textsWithIcons = [
         {
@@ -34,6 +47,30 @@ function TestHeader(){
     }
     function handleMore(){
         //Add more behaviour
+    }
+
+    function handleHideTimer(){
+        setTimerDisplays( {
+            timer: timerDisplays.icon,
+            icon: timerDisplays.timer,
+        })
+        if(timerButtonText==="Hide"){
+            setTimerButtonText("Show");
+        }
+        else{
+            setTimerButtonText("Hide");
+        }
+        //setTimerButtonTransparency("");
+    }
+    function handleUnderlineOn(){
+        setTimerButtonUnderline("underline");
+        setTimerButtonTextOpacity(0.8);
+        setTimerButtonTransparency("transparent");
+    }
+    function handleUnderlineOff(){
+        setTimerButtonUnderline("none");
+        setTimerButtonTextOpacity(1);
+        setTimerButtonTransparency("");
     }
 
     return (
@@ -59,10 +96,27 @@ function TestHeader(){
             <div className={styles.section}>
 
                 {/* Timer Value */}
-                <h4 id={styles.timer}>00:00</h4>
+
+                <div className={styles.timerBox}>
+                    <h4 id={styles.timer} style={{display: timerDisplays.timer}}>00:00</h4>
+
+                    <TimerIcon display={timerDisplays.icon}/>
+                </div>
 
                 {/* Timer hide button */}
-                <button id={styles.hideTimerButton}> <h5>Hide</h5></button>
+                <button 
+                    id={styles.hideTimerButton} 
+                    onClick={handleHideTimer} 
+                    onMouseDown={handleUnderlineOn}
+                    onMouseUp={handleUnderlineOff}
+                    onMouseLeave={handleUnderlineOff}
+                    style={{textDecoration: timerButtonUnderline, backgroundColor: timerButtonTransparency}}
+                    
+                > 
+
+                    <h5 style={{opacity: timerButtonTextOpacity}}>{timerButtonText}</h5>
+
+                </button>
 
             </div>
             

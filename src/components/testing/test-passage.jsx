@@ -11,10 +11,10 @@ function TestPassage(props) {
     darkGrayColor : "#666666",
   }
 
-  const scalersTransformers = {
+  const [scalersTransformers,setScalersTransformers] = useState({
     passage: "(1,1)",
     question: "(-1,1)",
-  }
+  })
   
   const [resizePosition, setResizePosition] = useState("middle");
 
@@ -22,7 +22,9 @@ function TestPassage(props) {
   const passageRef = useRef(null);
 
   const handleResizeStart = (e) => {
-    
+    if(e.target.id!=styles.resizer){
+      return 0;
+    }
     
     e.preventDefault();
     document.body.style.cursor = 'col-resize';
@@ -46,15 +48,22 @@ function TestPassage(props) {
       document.body.style.cursor = 'default';
 
       const widthPercent = parseInt(passageRef.current.style.width);
-      if(widthPercent>51){
-        setResizePosition("right");
+
+      setScalersTransformers({
+        passage: "(1,1)",
+        question: "(-1,1)",
+      })
+
+      if(widthPercent>50){
+        setResizePosition("part-right");
       }
-      else if(widthPercent<49){
-        setResizePosition("left")
+      else if(widthPercent<50){
+        setResizePosition("part-left");
       }
-      else{
-        setResizePosition("middle")
+      if(widthPercent==50){
+        setResizePosition("middle");
       }
+      console.log(resizePosition);
     };
 
     document.addEventListener('mousemove', handleResize);
@@ -79,6 +88,7 @@ function TestPassage(props) {
             scalerId={"testPassageScaler"}
             transformer={scalersTransformers.passage}
             resizePosition = {resizePosition}
+            setTransformer = {setScalersTransformers}
             setResizePosition = {setResizePosition}
         />
 
@@ -87,6 +97,7 @@ function TestPassage(props) {
                       scaleObject={passageRef} 
                       scalerId={"testQuestionScaler"}
                       transformer={scalersTransformers.question}
+                      setTransformer = {setScalersTransformers}
                       resizePosition = {resizePosition}
                       setResizePosition = {setResizePosition}
         />

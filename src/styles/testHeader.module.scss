@@ -75,13 +75,22 @@
     align-self: center;
     background-color: transparent;
     cursor: pointer;
-    width: fit-content;
+    display: flex;
+    justify-content: center;
+    width: pxToRem(20px);
     border-radius: 999rem;
     padding-left: pxToRem(16px);
     padding-right: pxToRem(16px);
     padding-top: pxToRem(2px);
     padding-bottom: pxToRem(2px);
     border: pxToRem(1px) solid variables.$main-dark-color;
+    transition: 0.4s;
+      
+    
+}
+#hideTimerButton:hover{
+    box-shadow:0px 0px 0px 1px variables.$main-dark-color inset;
+    background-color: #f0f0f0;
 }
 
 
@@ -101,4 +110,9 @@
 
 
 
-
+.timerBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: pxToRem(20px);
+}
