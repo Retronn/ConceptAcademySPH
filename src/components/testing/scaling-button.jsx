@@ -8,7 +8,7 @@ function ScalingButton(props){
     const handleRescale = () => {
         
         if(props.scalerId==="testPassageScaler"){
-            console.log(props.resizePosition);
+           
             
 
 
@@ -21,7 +21,7 @@ function ScalingButton(props){
                 })
             }
             else{
-                props.scaleObject.current.style.width= "calc(50% - 6px)";
+                props.scaleObject.current.style.width= "calc(50% - 3px)";
                 props.setResizePosition("middle"); 
                 props.setTransformer({
                     passage: "(1,1)",
@@ -42,7 +42,7 @@ function ScalingButton(props){
                 })
             }
             else{
-                props.scaleObject.current.style.width= "calc(50% - 6px)";
+                props.scaleObject.current.style.width= "calc(50% - 3px)";
                 props.setResizePosition("middle"); 
                 props.setTransformer({
                     passage: "(1,1)",

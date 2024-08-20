@@ -18,7 +18,7 @@ function TestPassage(props) {
   
   const [resizePosition, setResizePosition] = useState("middle");
 
-  const [passageWidth, setPassageWidth] = useState("calc(50% - 6px)"); 
+  const [passageWidth, setPassageWidth] = useState("calc(50% - 3px)"); 
   const passageRef = useRef(null);
 
   const handleResizeStart = (e) => {
@@ -63,7 +63,7 @@ function TestPassage(props) {
       if(widthPercent==50){
         setResizePosition("middle");
       }
-      console.log(resizePosition);
+      
     };
 
     document.addEventListener('mousemove', handleResize);

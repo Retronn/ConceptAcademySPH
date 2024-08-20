@@ -4,7 +4,7 @@ import TestQuestion from "./test-question";
 import styles from '../../styles/testBody.module.scss'
 import DashedBorders from "./static/dashed-borders";
 
-function TestBody(){
+function TestBody(props){
 
     // Temporary storing the question
     const question = {
@@ -38,8 +38,11 @@ function TestBody(){
         };
     }, []);
 
+
+
     return (
         <div className={styles.testBody}>
+            <div className={props.modalOverlayStyle}/>
             <TestPassage passage={question.passage}/>
             <TestQuestion question={question}/>
             <DashedBorders childClass={styles.borderBox} bordersStrokeWidths={bordersStrokeWidths}/>

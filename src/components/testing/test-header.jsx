@@ -9,7 +9,7 @@ import TextWithIcons from "./static/text-with-icons";
 import TimerIcon from "./static/timer-icon";
 
 
-function TestHeader(){
+function TestHeader(props){
 
     // Flipping the arrow on checking questions
     const [scaler,setScaler] = useState(-1);
@@ -73,6 +73,14 @@ function TestHeader(){
         setTimerButtonTransparency("");
     }
 
+    const [directionsDispay, setDirectionsDispay] = useState("none")
+
+    function toggleDirectionRules(){
+        changeScaler();
+        props.toogleModalOverlay();
+        (directionsDispay==="none" ? setDirectionsDispay("flex") : setDirectionsDispay("none"));
+
+    }
     return (
 
     <header className={styles.testHeader}>
@@ -86,12 +94,34 @@ function TestHeader(){
                 <h4>Section 1: Reading and Writing</h4>
 
                 {/* Check directions button */}
-                <button className={styles.directions} onClick={changeScaler}> 
+                <button className={styles.directions} onClick={toggleDirectionRules}> 
                     <h5>Directions</h5>
                     <ArrowIcon scaler={scaler} color={arrowColor}/>
                 </button>
                 
             </div>
+
+            <div className={styles.directionsRules} style={{display: directionsDispay}}>
+                <p className="testFont">
+                    The questions in this section address a number 
+                    of important reading and writing skills. 
+                    Each question includes one or more passages, 
+                    which may include a table or graph. 
+                    Read each passage and question carefully,
+                    and then choose the a best answer to the question based on the 
+                    passage(s). 
+                </p>
+                <p className="testFont">
+                    All questions in this section are multiple-choice with four answer choices. Each question has a single best answer.
+                </p>
+
+                <div className={styles.buttonArea}>
+                    <button className={styles.closeButton} onClick={toggleDirectionRules}>
+                        Close
+                    </button>
+                </div>
+            </div>
+
 
             <div className={styles.section}>
 
