@@ -22,6 +22,7 @@
     border-radius: pxToRem(8px);
     flex-grow: 1;
     cursor: pointer;
+    position: relative;
 }
 
 .answerLetter{
@@ -49,6 +50,7 @@
     all: unset;
     cursor: pointer;
     align-items: center;
+    
     height: pxToRem(44px);
     width: pxToRem(44px);
     margin-left: pxToRem(10px);
@@ -56,7 +58,7 @@
         font-size: pxToRem(12px);
         font-weight: 900;
         color: variables.$main-dark-color;
-        border: pxToRem(1.5px) solid variables.$main-dark-color;
+        border: pxToRem(1px) solid variables.$main-dark-color;
         height: pxToRem(16px);
         width: pxToRem(16px);    
         position: relative;
@@ -64,9 +66,42 @@
     .answerLetter::after{
         content: '';
         position: absolute;
-        height: pxToRem(1.5px);
+        height: pxToRem(1px);
         width: 150%;
         background-color: variables.$main-dark-color;
         top: calc(50% - pxToRem(0.5px));      
     }
+    h6{
+        all: unset;
+        font-size: pxToRem(14px);
+        text-decoration: underline;
+        font-weight: bold;
+        padding-left: pxToRem(4px);
+    }
 }
+
+
+.crossAnswerChoice::after{
+    content: '';
+    position: absolute;
+    height: pxToRem(1px);
+    left: calc(0% - pxToRem(8px));
+    width: calc(100% + pxToRem(16px));
+    background-color: variables.$main-dark-color;
+}
+
+.inactiveText{
+    opacity: 0.5;
+}
+
+.selectedBlue{
+    border: pxToRem(1px) solid variables.$blue-color;
+    outline: pxToRem(2px) solid variables.$blue-color;
+    
+}
+
+.selectedYellow{
+    border: pxToRem(1px) solid variables.$blue-color;
+    outline: pxToRem(2px) solid variables.$light-orange-color;
+}
+

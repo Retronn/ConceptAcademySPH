@@ -8,7 +8,6 @@ import AnswerChoice from "./answer-choice";
 import LettersCrossedIcon from "./static/letters-crossed-icon";
 import BottomDashedBorder from "./static/bottom-dashed-border";
 import BookmarkIcon from "./static/bookmark-icon";
-import ScalingButton from "./scaling-button";
 
 
 
@@ -66,6 +65,7 @@ function TestQuestion(props){
                 backgroundColor: "white",
                 areActive: false,
             })
+            
         }
         else{
             // Turn them on            
@@ -135,6 +135,23 @@ function TestQuestion(props){
         }, []);
 
 
+   
+
+    const [selectedChoice, setSelectedChoice] = useState(null);
+    const [crossedChoices, setCrossedChoices] = useState([false,false,false,false])
+
+    const handleAnswerClick = (choiceIndex) => {
+        setSelectedChoice(choiceIndex);
+        setCrossedChoices((prev) => {
+            return (prev.map((element, index) => {
+                if(index===choiceIndex){
+                    return false;
+                }
+                return element;
+            }))
+        });
+    };
+
     return (
         <div className={styles.container}>
 
@@ -185,9 +202,15 @@ function TestQuestion(props){
                     {values.map((value,index)=>{
                         return <AnswerChoice 
                                     key={index} 
+                                    index ={index}
+                                    isCrossed = {crossedChoices[index]}
+                                    setCrossedChoices = {setCrossedChoices}
+                                    isSelected = {selectedChoice === index}
+                                    onClick={() => handleAnswerClick(index)}
                                     value={value} 
                                     content={contents[index]} 
                                     answerCrossoutButtonsDisplay={strikethroughOptions.displayOptions}
+                                    setSelectedChoice = {setSelectedChoice}
                                 />
                     })}
                 </div>

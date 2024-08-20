@@ -14,8 +14,11 @@ function Test(){
 
   return (<>
     <TestHeader toogleModalOverlay={toogleModalOverlay}/>
-    <TestBody modalOverlayStyle={modalOverlayStyle}/>
-    <TestFooter/>
+
+    <div id={styles.container} className={modalOverlayStyle}>
+      <TestBody/>
+      <TestFooter/>
+    </div>
   </>)
 }
 
