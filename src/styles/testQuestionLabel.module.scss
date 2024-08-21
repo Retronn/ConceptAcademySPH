@@ -1,0 +1,26 @@
+
+
+.container{
+    height: 1.75rem;
+    width: 1.75rem;
+    background-image: url("bigDashedSqare.svg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #324DC7;
+    position: relative;
+    background-color: white;
+
+}
+
+button{
+    all: unset;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.container:hover{
+    background-color: #f0f0f0;
+}

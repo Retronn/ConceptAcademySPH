@@ -17,7 +17,7 @@ function Test(){
 
     <div id={styles.container} className={modalOverlayStyle}>
       <TestBody/>
-      <TestFooter/>
+      <TestFooter toogleModalOverlay={toogleModalOverlay}/>
     </div>
   </>)
 }
