@@ -15,10 +15,10 @@ function Test(){
   return (<>
     <TestHeader toogleModalOverlay={toogleModalOverlay}/>
 
-    <div id={styles.container} className={modalOverlayStyle}>
+      <div id={styles.container} className={modalOverlayStyle}/>
       <TestBody/>
       <TestFooter toogleModalOverlay={toogleModalOverlay}/>
-    </div>
+    
   </>)
 }
 

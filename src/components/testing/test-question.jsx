@@ -154,69 +154,69 @@ function TestQuestion(props){
 
     return (
         <div className={styles.container}>
+            <div className={styles.innerContainer}>
 
 
-
-            {/* Area with all question Elements */}
-            <div className={styles.questionZone}>
-
-
-                {/* Area with question info and button */}
-                <div className={styles.infoArea} ref={infoRef}>
-                    
-                    {/* Question number indicator */}
-                    <div className={styles.questionNum}>
-                        <h4>{props.question.questionNumber}</h4>
-                    </div>
+                {/* Area with all question Elements */}
+                <div className={styles.questionZone}>
 
 
-                    {/* Button "Mark for Review"  */}
-                    <button className={styles.markReview} onClick={markQuestionForReview}>
+                    {/* Area with question info and button */}
+                    <div className={styles.infoArea} ref={infoRef}>
+                        
+                        {/* Question number indicator */}
+                        <div className={styles.questionNum}>
+                            <h4>{props.question.questionNumber}</h4>
+                        </div>
 
-                        <BookmarkIcon fillColor={markForReviewButton.backgroundColor} strokeWidth={markForReviewButton.strokeWidth}/>
-                        <h5 style={{fontWeight: markForReviewButton.fontWeigth}}>Mark for Review</h5>
 
-                    </button>
+                        {/* Button "Mark for Review"  */}
+                        <button className={styles.markReview} onClick={markQuestionForReview}>
 
+                            <BookmarkIcon fillColor={markForReviewButton.backgroundColor} strokeWidth={markForReviewButton.strokeWidth}/>
+                            <h5 style={{fontWeight: markForReviewButton.fontWeigth}}>Mark for Review</h5>
 
-                    {/* Button to show up answer choices' crossout buttons */}
-                    <div className={styles.crossOutArea}>
-                        <button className={styles.crossButton} style={{backgroundColor: strikethroughOptions.backgroundColor}} onClick={toogleStrikethroughOptions}>
-                           <LettersCrossedIcon color={strikethroughOptions.textColor}/>
                         </button>
+
+
+                        {/* Button to show up answer choices' crossout buttons */}
+                        <div className={styles.crossOutArea}>
+                            <button className={styles.crossButton} style={{backgroundColor: strikethroughOptions.backgroundColor}} onClick={toogleStrikethroughOptions}>
+                            <LettersCrossedIcon color={strikethroughOptions.textColor}/>
+                            </button>
+                        </div>
+
+                        {/* BottomBorder */}
+                        <BottomDashedBorder childClass = {styles.borderBox} strokeWidth = {borderStrokeWidth}/>
+
                     </div>
 
-                    {/* BottomBorder */}
-                    <BottomDashedBorder childClass = {styles.borderBox} strokeWidth = {borderStrokeWidth}/>
+
+                    {/* Question sentence itself */}
+                    <p className={`testFont + ${styles.question}`}>
+                        {questionStatement}
+                    </p>
+
+                    {/* Answer choices */}
+                    <div className={styles.answerChoices}>
+                        {values.map((value,index)=>{
+                            return <AnswerChoice 
+                                        key={index} 
+                                        index ={index}
+                                        isCrossed = {crossedChoices[index]}
+                                        setCrossedChoices = {setCrossedChoices}
+                                        isSelected = {selectedChoice === index}
+                                        onClick={() => handleAnswerClick(index)}
+                                        value={value} 
+                                        content={contents[index]} 
+                                        answerCrossoutButtonsDisplay={strikethroughOptions.displayOptions}
+                                        setSelectedChoice = {setSelectedChoice}
+                                    />
+                        })}
+                    </div>
 
                 </div>
-
-
-                {/* Question sentence itself */}
-                <p className={`testFont + ${styles.question}`}>
-                    {questionStatement}
-                </p>
-
-                {/* Answer choices */}
-                <div className={styles.answerChoices}>
-                    {values.map((value,index)=>{
-                        return <AnswerChoice 
-                                    key={index} 
-                                    index ={index}
-                                    isCrossed = {crossedChoices[index]}
-                                    setCrossedChoices = {setCrossedChoices}
-                                    isSelected = {selectedChoice === index}
-                                    onClick={() => handleAnswerClick(index)}
-                                    value={value} 
-                                    content={contents[index]} 
-                                    answerCrossoutButtonsDisplay={strikethroughOptions.displayOptions}
-                                    setSelectedChoice = {setSelectedChoice}
-                                />
-                    })}
-                </div>
-
             </div>
-
         </div>
     )
 }

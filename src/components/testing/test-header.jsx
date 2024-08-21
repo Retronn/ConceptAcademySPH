@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from '../../styles/testHeader.module.scss';
 
 import ArrowIcon from "./static/arrow-icon";
@@ -81,6 +81,29 @@ function TestHeader(props){
         (directionsDispay==="none" ? setDirectionsDispay("flex") : setDirectionsDispay("none"));
 
     }
+    const directionRulesRef = useRef(null);
+    const directionsButton = useRef(null);
+
+    useEffect(()=>{
+
+        function handleClickOutide (event){
+            if(scaler===1 && 
+                !directionRulesRef.current.contains(event.target) &&
+                !directionsButton.current.contains(event.target)
+              )
+            {
+                
+                toggleDirectionRules();
+            }
+        }
+            document.addEventListener("click", handleClickOutide);
+
+            return ()=>{
+                document.removeEventListener("click", handleClickOutide);
+            }
+        
+    },[scaler]);
+
     return (
 
     <header className={styles.testHeader}>
@@ -94,14 +117,14 @@ function TestHeader(props){
                 <h4>Section 1: Reading and Writing</h4>
 
                 {/* Check directions button */}
-                <button className={styles.directions} onClick={toggleDirectionRules}> 
+                <button ref={directionsButton} className={styles.directions} onClick={toggleDirectionRules}> 
                     <h5>Directions</h5>
                     <ArrowIcon scaler={scaler} color={arrowColor}/>
                 </button>
                 
             </div>
 
-            <div className={styles.directionsRules} style={{display: directionsDispay}}>
+            <div ref={directionRulesRef} className={styles.directionsRules} style={{display: directionsDispay}}>
                 <p className="testFont">
                     The questions in this section address a number 
                     of important reading and writing skills. 

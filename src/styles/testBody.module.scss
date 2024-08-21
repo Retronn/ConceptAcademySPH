@@ -8,11 +8,15 @@
 
 .testBody{
     display: flex;
+    
     justify-content: space-between;
     flex-grow: 1;
     padding-top: 3px;
     padding-bottom: 3px;
     position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
 }
 
 .borderBox {

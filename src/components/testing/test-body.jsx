@@ -43,8 +43,10 @@ function TestBody(props){
     return (
         <div className={styles.testBody}>
             <div className={props.modalOverlayStyle}/>
+
             <TestPassage passage={question.passage}/>
             <TestQuestion question={question}/>
+            
             <DashedBorders childClass={styles.borderBox} bordersStrokeWidths={bordersStrokeWidths}/>
         </div>
     )
