@@ -193,7 +193,7 @@ function TestQuestion(props){
 
 
                     {/* Question sentence itself */}
-                    <p className={`testFont + ${styles.question}`}>
+                    <p ref={props.reference} className={`testFont + ${styles.question}`}>
                         {questionStatement}
                     </p>
 

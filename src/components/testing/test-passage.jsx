@@ -4,7 +4,7 @@ import TestPassageText from "./test-passage-text";
 import ScaleIcon from "./static/scale-icon";
 import ScalingButton from "./scaling-button";
 
-function TestPassage(props) {
+function TestPassage({passageRef,passage}) {
   
   const colors={
     lightGrayColor : "#949494",
@@ -19,7 +19,7 @@ function TestPassage(props) {
   const [resizePosition, setResizePosition] = useState("middle");
 
   const [passageWidth, setPassageWidth] = useState("calc(50% - 3px)"); 
-  const passageRef = useRef(null);
+  
 
   const handleResizeStart = (e) => {
     if(e.target.id!=styles.resizer){
@@ -76,7 +76,7 @@ function TestPassage(props) {
   return (
     <>
       <div className={styles.testPassage} ref={passageRef} style={{ width: `${passageWidth}`}}>
-        <TestPassageText passage={props.passage}/>
+        <TestPassageText passage={passage}/>
       </div>
 
 

@@ -61,6 +61,9 @@
     gap: pxToRem(10px);
     cursor: pointer;
     @include darkButtons();
+    svg{
+        height: pxToRem(14px);
+    }
 }
 
 
