@@ -6,21 +6,58 @@
 }
 
 
-#blurb{
-    margin-bottom: pxToRem(6px);
-}
 
-.passage{
-    margin-left: variables.$default-test-margin-sides;
-    margin-top: calc(variables.$default-test-margin-sides + pxToRem(16px));
-    margin-right: pxToRem(44px);
-    max-width: pxToRem(500px);
-    align-self: center;
-}
+
 
 .container{
     width: 100%;
     display: flex;
-    flex-direction: column;
     min-width: pxToRem(306px);
+}
+
+.passageContainer{
+    width: 100%;
+    padding-left: variables.$default-test-margin-sides;
+    padding-top: calc(variables.$default-test-margin-sides + pxToRem(16px));
+    padding-right: pxToRem(44px);
+    max-width: pxToRem(500px);
+    align-self: center;
+}
+
+.blurb{
+    margin-bottom: pxToRem(6px);
+}
+
+
+.passageHeader{
+    font-weight: bold;
+    margin-bottom: pxToRem(6px);
+    margin-top: pxToRem(36px);
+}
+
+.passageCopyrights{
+    margin-top: pxToRem(8px);
+    margin-bottom: pxToRem(16px);
+    display: flex;
+    justify-content: end;
+    font-size: pxToRem(10px);
+}
+
+.italicText{
+    font-style: italic;
+}
+
+.graphContainer{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    img{
+        width: 100%;
+    }
+}
+.notesContainer{
+    display: flex;
+    width: fit-content;
+    padding-left: pxToRem(44px);
 }
