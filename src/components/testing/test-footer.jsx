@@ -7,7 +7,11 @@ import MapMarkerIcon from "./static/map-marker-icon";
 import BookmarkIcon from "./static/bookmark-icon";
 import TestQuestionLabel from "./test-question-label";
 
-function TestFooter(props){
+function TestFooter({testQuestions,currentQuestion,changeQuestion}){
+
+    
+    const testQuestion = testQuestions[0];
+    const sectionInfo = `Section ${testQuestion.section}: ${(testQuestion.testPart===1) ? "Reading and Writing" : "Math"} Questions`  
 
     // Flipping the arrow on checking questions
     const [scaler,setScaler] = useState(1);
@@ -55,7 +59,7 @@ function TestFooter(props){
         <div ref={overlayRef} className={styles.allQuestions} style={{display: (isQuesitonOverlayActive) ? "" : "none"}}>
 
             <div id={styles.sectionInfo}> 
-                <h4>Section 1: Reading and Writing Questions</h4>
+                <h4>{sectionInfo}</h4>
                 <button className={styles.closeOverlay} onClick={changeScaler}> 
                     <XIcon color={colors.mainDarkColor}/> 
                 </button>
@@ -84,10 +88,12 @@ function TestFooter(props){
             </div>
 
             <div id={styles.questionsInfo}> 
-                <TestQuestionLabel questionNum={1} isCurrent={true}/>
-                <TestQuestionLabel questionNum={1} isCurrent={false}/>
-                <TestQuestionLabel questionNum={1} isCurrent={false}/>
-                <TestQuestionLabel questionNum={1} isCurrent={false}/>
+
+                {testQuestions.map((question,index)=>{
+                    return(
+                        <TestQuestionLabel key={index} closeOverlay={changeScaler} changeQuestion={changeQuestion} questionNum={question.questionNumber} isCurrent={(currentQuestion===index+1)}/>
+                    )
+                })}
 
             </div>
 
@@ -109,7 +115,7 @@ function TestFooter(props){
             {/* "Questions" button */}
             <div className={styles.section}>
                 <button ref={questionsButtonRef} id={styles.testQuestionsButton} onClick={changeScaler}>
-                    <h5>Question 1 of 8</h5>
+                    <h5>{`Question ${currentQuestion} of ${testQuestions.length}`}</h5>
                     <ArrowIcon scaler={scaler} color={`white`}/>
                 </button>
             </div>

@@ -11,7 +11,7 @@ import BookmarkIcon from "./static/bookmark-icon";
 
 
 
-function TestQuestion(props){
+function TestQuestion({setTestQuestions,...props}){
 
     // Just colors in usage
     const colors = {
@@ -137,8 +137,8 @@ function TestQuestion(props){
 
    
 
-    const [selectedChoice, setSelectedChoice] = useState(null);
-    const [crossedChoices, setCrossedChoices] = useState([false,false,false,false])
+    const [selectedChoice, setSelectedChoice] = useState(props.question.selectedChoice);
+    const [crossedChoices, setCrossedChoices] = useState(props.question.crossedChoices)
 
     const handleAnswerClick = (choiceIndex) => {
         setSelectedChoice(choiceIndex);

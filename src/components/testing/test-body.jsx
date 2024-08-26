@@ -8,55 +8,10 @@ import TrashBinIcon from "./static/trash-bin-icon";
 import UnderlineIcon from "./static/underline-icon";
 import ArrowIcon from "./static/arrow-icon";
 
-function TestBody(props){
+function TestBody({question,setTestQuestions}){
 
     // Temporary storing the question
-    const question = {
-        testPart: 1,
-        section: 1,
-        questionNumber: 1,
-        questionType: 1,
-        passage: [
-                    {
-                        type: "blurb", 
-                        content:[
-                                {
-                                    type:"standard",
-                                    content: "While researching a topic, a student has taken the following notes:"
-                                },
-                                ]
-                    },
-
-                    {
-                        type: "notes", 
-                        content:[
-                                    [   
-                                        {
-                                            type: "standard",
-                                            content:"Scientists have developed a “freeze-thaw” battery that can retain 92% of its charge after twelve weeks.",
-                                        }
-                                    ],
-
-                                    [   
-                                        {
-                                            type: "standard",
-                                            content:"Scientists have developed a “freeze-thaw” battery that can retain 92% of its charge after twelve weeks.",
-                                        }
-                                    ],
-                                ]
-                    },
-
-                    
-                ],
-
-        isMarked: false,
-        isAnswered: false,
-        questionStatement: "Which choice completes text the text with the most logical and precise word or phrase?",
-        answerChoices: {
-            values: ["A","B","C","D"],
-            contents: ["scholarly", "melodic", "jarring", "personal"],
-        },
-    }
+    
 
     const colors = {  
         mainBlack : "#1e1e1e",
@@ -176,10 +131,10 @@ function TestBody(props){
 
 
 
-            <div className={props.modalOverlayStyle}/>
+            
 
             <TestPassage passageRef = {passageTextRef} passage={question.passage}/>
-            <TestQuestion question={question} reference={questionTextRef}/>
+            <TestQuestion question={question} reference={questionTextRef} setTestQuestions={setTestQuestions}/>
             
             <DashedBorders childClass={styles.borderBox} bordersStrokeWidths={bordersStrokeWidths}/>
         </div>
