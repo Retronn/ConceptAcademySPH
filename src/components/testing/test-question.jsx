@@ -41,14 +41,14 @@ function TestQuestion({setTestQuestions,...props}){
 
 
     // Hook for the "Mark for Review" button
-    const [markForReviewButton, setMarkForReviewButton] = useState({
-        isActive: false,
-        backgroundColor: colors.whiteColor,
-        strokeWidth: 0.5,
-        fontWeigth:400,
-    })
+    const markForReviewButton = {
+        isActive: props.question.isMarked,
+        backgroundColor: (!props.question.isMarked) ? colors.whiteColor : colors.activeRedColor,
+        strokeWidth: (!props.question.isMarked) ? 0.5 : 1,
+        fontWeigth: (!props.question.isMarked) ? 400 : 700,
+    }
 
-  
+    
     // Hook for the bottom dash border's of question info area width 
     const [borderStrokeWidth, setBorderStrokeWidth] = useState(0);
 
@@ -83,24 +83,43 @@ function TestQuestion({setTestQuestions,...props}){
 
     // Marking/Unmarking the question
     function markQuestionForReview(){
-        if(markForReviewButton.isActive){
+        
+        if(props.question.isMarked){
             // Unmark it
-            setMarkForReviewButton({
-                isActive: false,
-                backgroundColor: colors.whiteColor,
-                strokeWidth: 0.5,
-                fontWeigth:400,
+            
+
+
+            setTestQuestions((testQuestions)=>{
+                return testQuestions.map((testQuestion,index)=>{
+                    if(index===questionNum-1){
+                        return (
+                            {
+                                ...testQuestion,
+                                isMarked : false,
+                            }
+                        )
+                    }
+                    return testQuestion;
+                })
             })
 
         }
         else{
             // Mark it
-            setMarkForReviewButton({
-                isActive: true,
-                backgroundColor: colors.activeRedColor,
-                strokeWidth: 1,
-                fontWeigth:700,
+            setTestQuestions((testQuestions)=>{
+                return testQuestions.map((testQuestion,index)=>{
+                    if(index===questionNum-1){
+                        return (
+                            {
+                                ...testQuestion,
+                                isMarked : true,
+                            }
+                        )
+                    }
+                    return testQuestion;
+                })
             })
+
 
         }
 
@@ -137,20 +156,9 @@ function TestQuestion({setTestQuestions,...props}){
 
    
 
-    const [selectedChoice, setSelectedChoice] = useState(props.question.selectedChoice);
-    const [crossedChoices, setCrossedChoices] = useState(props.question.crossedChoices)
-
-    const handleAnswerClick = (choiceIndex) => {
-        setSelectedChoice(choiceIndex);
-        setCrossedChoices((prev) => {
-            return (prev.map((element, index) => {
-                if(index===choiceIndex){
-                    return false;
-                }
-                return element;
-            }))
-        });
-    };
+    const crossedChoices = props.question.crossedChoices;
+    const selectedChoice = props.question.selectedChoice;
+    const questionNum = props.question.questionNumber;
 
     return (
         <div className={styles.container}>
@@ -204,13 +212,12 @@ function TestQuestion({setTestQuestions,...props}){
                                         key={index} 
                                         index ={index}
                                         isCrossed = {crossedChoices[index]}
-                                        setCrossedChoices = {setCrossedChoices}
                                         isSelected = {selectedChoice === index}
-                                        onClick={() => handleAnswerClick(index)}
                                         value={value} 
                                         content={contents[index]} 
                                         answerCrossoutButtonsDisplay={strikethroughOptions.displayOptions}
-                                        setSelectedChoice = {setSelectedChoice}
+                                        setTestQuestions={setTestQuestions}
+                                        questionNum = {questionNum}
                                     />
                         })}
                     </div>

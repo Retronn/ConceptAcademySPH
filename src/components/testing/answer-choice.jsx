@@ -24,31 +24,83 @@ function AnswerChoice(props){
       }, [props.isSelected]);
 
     
-    const [crossStyle, setCrossStyle] = useState("");
+
 
 
     function toggleCrossAnswerChoice(){
-        props.setCrossedChoices((prev) => {
-            return (prev.map((element, index) => {
-                if(index===props.index){
-                    return !element;
+        // props.setCrossedChoices((prev) => {
+        //     return (prev.map((element, index) => {
+        //         if(index===props.index){
+        //             return !element;
+        //         }
+        //         return element;
+        //     }))
+        // });
+
+
+        // if(props.isSelected){
+        //     props.setSelectedChoice(null);
+        // }
+
+
+        props.setTestQuestions((testQuestions)=> {
+            
+            return( testQuestions.map((testQuestion,index)=>{
+                if(index===props.questionNum-1){
+
+                    
+                    return (
+                        {
+                            ...testQuestion,
+                            crossedChoices: (testQuestion.crossedChoices.map((choice,index)=>{
+                                if(index===props.index){
+                                    return !choice;
+                                }
+                                return choice;
+                            })),
+                            selectedChoice: (props.isSelected) ? null : testQuestion.selectedChoice,
+                            isAnswered: (props.isSelected) ? false : testQuestion.isAnswered,
+                        }
+                    )
                 }
-                return element;
-            }))
-        });
+                return testQuestion;
+            }));
+           
+        })
 
-
-        if(props.isSelected){
-            props.setSelectedChoice(null);
-        }
     }
 
-    const [thisSelected, setThisSelected] = useState(false);
+    function setAnswerChoice(choiceIndex){    
+        props.setTestQuestions((testQuestions)=> {
+            return testQuestions.map((testQuestion,index)=>{
+                if(index===props.questionNum-1){
+                    return(
+                        {
+                            ...testQuestion,
+                            crossedChoices: (testQuestion.crossedChoices.map((choice,index)=>{
+                                if(index===props.index){
+                                    return false;
+                                }
+                                return choice;
+                            })),
+                            selectedChoice: choiceIndex,
+                            isAnswered: true,
+                        }
+                    )
+                }
+                return testQuestion;
+            })
+        })
+    }
+
+
     
 
 
     function handleClick(){
-        props.onClick();
+        setAnswerChoice(props.index);
+
+
         setOutlineOff();
     }
     function setOutlineOff(){

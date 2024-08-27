@@ -47,6 +47,7 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion}){
     const colors = {
         mainDarkColor: "#1E1E1E",
         activeRedColor: "#ab2334",
+        lightRedColor: "#c13145",
         whiteColor: "#FFFFFF",
         blueColor: "#324DC7",
         lightGrayColor : "#949494",
@@ -78,8 +79,8 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion}){
 
                 <div className={styles.iconWithText} id={styles.bookmark}>
                     <BookmarkIcon 
-                        fillColor={colors.activeRedColor} 
-                        strokeColor = {colors.activeRedColor} 
+                        fillColor={colors.lightRedColor} 
+                        strokeColor = {colors.lightRedColor} 
                         
                         />
                     <p>For Review</p>
@@ -91,7 +92,7 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion}){
 
                 {testQuestions.map((question,index)=>{
                     return(
-                        <TestQuestionLabel key={index} closeOverlay={changeScaler} changeQuestion={changeQuestion} questionNum={question.questionNumber} isCurrent={(currentQuestion===index+1)}/>
+                        <TestQuestionLabel key={index} closeOverlay={changeScaler} changeQuestion={changeQuestion} question={question} isCurrent={(currentQuestion===index+1)}/>
                     )
                 })}
 
