@@ -19,6 +19,7 @@ function TestQuestionLabel({question, isCurrent, changeQuestion,closeOverlay}){
                 textDecoration: (isCurrent) ? "underline" : "none",
                 color: (question.isAnswered) ? "white" : "#324DC7",
                 backgroundColor: (question.isAnswered) ? "#324DC7" : "white",
+                backgroundImage: (question.isAnswered) ? "none" : 'url("bigDashedSqare.svg")',
             }}>
                 {questionNum}
                 <MapMarkerIcon isInLabel={true} isActive={isCurrent}/>

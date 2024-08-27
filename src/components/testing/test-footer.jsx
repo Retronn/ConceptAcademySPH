@@ -109,7 +109,7 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion}){
 
             {/* Users full name */}
             <div className={styles.section}>
-                <h4>Alexandr Tkachyov</h4>
+                <h4>SAT Practice Hub</h4>
             </div>
 
 
