@@ -7,6 +7,7 @@ import NoteIcon from "./static/note-icon";
 import MoreIcon from "./static/more-icon";
 import TextWithIcons from "./static/text-with-icons";
 import TimerIcon from "./static/timer-icon";
+import TimerCountdown from "./timer-countdown";
 
 
 function TestHeader(props){
@@ -104,6 +105,12 @@ function TestHeader(props){
         
     },[scaler]);
 
+    const moduleTime = 1920;
+
+    function onTimerZero(){
+        console.log("Module ended");
+    }
+
     return (
 
     <header className={styles.testHeader}>
@@ -114,7 +121,10 @@ function TestHeader(props){
             <div className={styles.section}>
 
                 {/* Section title */}
-                <h4>Section 1: Reading and Writing</h4>
+                <h4> 
+                   {`Section ${props.question.section}: 
+                   ${(props.question.testPart==1) ? "Reading and Writing" : "Math"}`} 
+                </h4>
 
                 {/* Check directions button */}
                 <button ref={directionsButton} className={styles.directions} onClick={toggleDirectionRules}> 
@@ -150,8 +160,11 @@ function TestHeader(props){
 
                 {/* Timer Value */}
 
+                
                 <div className={styles.timerBox}>
-                    <h4 id={styles.timer} style={{display: timerDisplays.timer}}>00:00</h4>
+                    <h4 id={styles.timer} style={{display: timerDisplays.timer}}>
+                        <TimerCountdown initialTime={moduleTime} onTimerZero={onTimerZero}/>
+                    </h4>
 
                     <TimerIcon display={timerDisplays.icon}/>
                 </div>

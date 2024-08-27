@@ -116,7 +116,7 @@ function Test(){
 
   
   return (<>
-    <TestHeader toogleModalOverlay={toogleModalOverlay}/>
+    <TestHeader toogleModalOverlay={toogleModalOverlay} question={testQuestions[currentQuestion-1]}/>
 
       <div id={styles.container} className={modalOverlayStyle}/>
       <TestBody setTestQuestions={setTestQuestions} question={testQuestions[currentQuestion-1]}/>
