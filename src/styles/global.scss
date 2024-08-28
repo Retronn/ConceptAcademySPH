@@ -53,6 +53,11 @@ h6{
     font-weight: 450;
     margin-top: pxToRem(10px);
 }
+button{
+    all: unset;
+    cursor: pointer;
+    width: fit-content;
+}
 
 
 .App{

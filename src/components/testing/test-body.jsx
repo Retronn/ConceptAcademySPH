@@ -7,8 +7,9 @@ import AddNoteIcon from "./static/add-note-icon";
 import TrashBinIcon from "./static/trash-bin-icon";
 import UnderlineIcon from "./static/underline-icon";
 import ArrowIcon from "./static/arrow-icon";
+import ReviewPage from "./review-page";
 
-function TestBody({question,setTestQuestions}){
+function TestBody({question,setTestQuestions,testQuestions,changeQuestion, isReviewActive, setIsReviewActive}){
 
     // Temporary storing the question
     
@@ -18,6 +19,12 @@ function TestBody({question,setTestQuestions}){
         noteLightBlack : "#1f1f1f",
         noteLightYellow: "#fffad7",
         noteYellow: "#ffe898",
+        activeRedColor: "#ab2334",
+        lightRedColor: "#c13145",
+        whiteColor: "#FFFFFF",
+        blueColor: "#324DC7",
+        lightGrayColor : "#949494",
+        darkGrayColor : "#666666",
     }
 
     // Hook for top and bottom dash borders' widths
@@ -96,16 +103,19 @@ function TestBody({question,setTestQuestions}){
     }, []);
     
 
+    
 
-
+    function toggleReviewPage(){
+        setIsReviewActive(!isReviewActive);
+    }
 
     return (
 
-
-        <div className={styles.testBody}>
+        <>
+        <div className={styles.testBody} style={{display: (isReviewActive) ? "none" : "flex"}}>
             
 
-
+            
             <div id={styles.toolbar} style={{
                 display: (toolbarVisible) ? "flex" : "none",
                 top: toolbarPosition.top,
@@ -142,9 +152,20 @@ function TestBody({question,setTestQuestions}){
             <TestPassage passageRef = {passageTextRef} passage={question.passage}/>
             <TestQuestion question={question} reference={questionTextRef} setTestQuestions={setTestQuestions}/>
             
+
             <DashedBorders childClass={styles.borderBox} bordersStrokeWidths={bordersStrokeWidths}/>
         </div>
 
+
+
+        <ReviewPage question={question} colors={colors} 
+                    testQuestions={testQuestions} toggleReviewPage={toggleReviewPage} 
+                    changeQuestion={changeQuestion} bordersStrokeWidths={bordersStrokeWidths}
+                    isReviewActive={isReviewActive}
+        />
+
+        
+    </>
     )
 }
 

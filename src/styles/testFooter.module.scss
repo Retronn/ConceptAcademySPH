@@ -17,6 +17,7 @@
 
 .section{
     grid-column: span 4;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -27,6 +28,7 @@
 .testFooter { 
     background-color: variables.$light-blue-color;
     width: 100%;
+    height: pxToRem(100px);
     position: relative;
     svg{     
         height: pxToRem(20px);
@@ -69,7 +71,6 @@
 
 #nextQuestionButton{
    background-color: variables.$blue-color; 
-   border: none;
    border-radius: 999rem;
    padding-left: pxToRem(24px);
    padding-right: pxToRem(24px);
@@ -81,6 +82,13 @@
    h5{
     user-select: none;
    }
+}
+
+.nextQuestionButtonClick{
+    text-decoration: underline;
+    text-decoration-color: white;
+    border: pxToRem(1px) solid variables.$blue-color; 
+    transition: 1s;
 }
 
 .allQuestions{

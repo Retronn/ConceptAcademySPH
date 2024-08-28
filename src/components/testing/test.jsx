@@ -114,13 +114,21 @@ function Test(){
 }
   ]);
 
-  
+  const  [isReviewActive,setIsReviewActive] = useState(false);
+
   return (<>
     <TestHeader toogleModalOverlay={toogleModalOverlay} question={testQuestions[currentQuestion-1]}/>
 
       <div id={styles.container} className={modalOverlayStyle}/>
-      <TestBody setTestQuestions={setTestQuestions} question={testQuestions[currentQuestion-1]}/>
-      <TestFooter changeQuestion={changeQuestion} currentQuestion={currentQuestion} testQuestions = {testQuestions}/>
+      <TestBody setTestQuestions={setTestQuestions} isReviewActive={isReviewActive} setIsReviewActive={setIsReviewActive}
+                question={testQuestions[currentQuestion-1]} 
+                testQuestions={testQuestions} changeQuestion={changeQuestion}
+        />
+
+      <TestFooter changeQuestion={changeQuestion} currentQuestion={currentQuestion} 
+                  testQuestions = {testQuestions}
+                  isReviewActive={isReviewActive} setIsReviewActive={setIsReviewActive}
+       />
     
   </>)
 }

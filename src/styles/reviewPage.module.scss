@@ -1,0 +1,149 @@
+@use 'variables';
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+
+.testBody{
+    display: flex;
+    flex-grow: 1;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.reviewPage{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: pxToRem(28px);
+    h4{
+      font-size: pxToRem(35px); 
+      font-weight: normal;
+      
+    }
+  }
+  
+  
+  .allQuestions{
+    
+    
+    min-width: 50%;
+    max-width: 70%;
+  
+    height: fit-content;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: pxToRem(8px);
+    gap: pxToRem(28px);
+    padding: pxToRem(34px);
+    box-shadow: 0px 0px 10px 4px rgb(0,0,0,0.1);
+    margin-left: pxToRem(66px);
+    margin-right: pxToRem(66px);
+  }
+  
+  
+  
+  
+  #sectionInfo{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    padding-bottom: pxToRem(24px);
+    gap: pxToRem(12px);
+    h4{
+        display: inline;
+        font-weight: bold;
+        font-size: pxToRem(20px);
+        text-wrap: wrap;
+    }
+    p{
+      text-wrap: nowrap;
+    }
+  }
+  .hintsContainer{
+    display: flex;
+    gap: pxToRem(20px);
+  }
+  
+  
+  #sectionInfo::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: pxToRem(1px);
+    background-color: variables.$gray-color;
+    bottom: 0%;
+    
+    
+  }
+  
+  
+  
+  #labelsInfo{
+    display: flex;
+    width: 100%;
+    padding-top: pxToRem(12px);
+    padding-bottom: pxToRem(12px);
+    position: relative;
+    justify-content: center;
+    gap: pxToRem(20px);
+  }
+  
+  
+  
+  .iconWithText{
+    display: flex;
+    gap: pxToRem(8px);
+    align-items: center;
+    p{
+        font-size: pxToRem(14px);
+    }
+    svg{
+        width: pxToRem(16px);
+        height: pxToRem(16px);
+        padding: 0;
+        
+    }
+    
+  }
+  #bookmark{
+    gap: pxToRem(6px);
+  }
+  
+  .dashedSqare{
+    width: pxToRem(16px);
+    height: pxToRem(16px);
+    background-image: url("dashedSqare.svg");
+  }
+  
+  
+  #questionsInfo{
+    display: grid;
+    margin-left: pxToRem(10px);
+    justify-content: start;
+    grid-template-columns: repeat(10, max-content);
+    gap: pxToRem(32px);
+  }
+  
+  .borderBox {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    user-select: none;
+    z-index: -1;
+    path{
+        fill: none;
+        stroke: black;
+        stroke-width: 4;
+      }
+  }

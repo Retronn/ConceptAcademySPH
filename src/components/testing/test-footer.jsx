@@ -7,7 +7,7 @@ import MapMarkerIcon from "./static/map-marker-icon";
 import BookmarkIcon from "./static/bookmark-icon";
 import TestQuestionLabel from "./test-question-label";
 
-function TestFooter({testQuestions,currentQuestion,changeQuestion}){
+function TestFooter({testQuestions,currentQuestion,changeQuestion, isReviewActive, setIsReviewActive}){
 
     
     const testQuestion = testQuestions[0];
@@ -53,21 +53,38 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion}){
         lightGrayColor : "#949494",
         darkGrayColor : "#666666",
     }
+    const nextButtonRef = useRef(null);
+
+
+    function nextButtonDown(){
+        nextButtonRef.current.classList.add(styles.nextQuestionButtonClick);
+    }
 
     function goToTheNextQuestion(){
         if(currentQuestion!=testQuestions.length){
             changeQuestion(currentQuestion+1);
         }
         else{
-            alert("Go to Review Page is in development");
+            setIsReviewActive(true);
         }
     }
     
     function goToThePreviousQuestion(){
+        if(isReviewActive){
+            setIsReviewActive(false);
+            return;
+        }
+
         if(currentQuestion!=1){
             changeQuestion(currentQuestion-1);
         }
     }
+    function activateReview(){
+        setIsReviewActive(true);
+        changeScaler();
+    }
+
+    
 
     return (
     <footer className={styles.testFooter}>
@@ -113,7 +130,7 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion}){
 
             </div>
 
-            <div id={styles.reviewInfo}> 
+            <div id={styles.reviewInfo} onClick={activateReview}> 
                 <button>Go to Review Page</button>
             </div>
 
@@ -129,7 +146,7 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion}){
 
 
             {/* "Questions" button */}
-            <div className={styles.section}>
+            <div className={styles.section} style={{display: (isReviewActive) ? "none" : "flex"}}>
                 <button ref={questionsButtonRef} id={styles.testQuestionsButton} onClick={changeScaler}>
                     <h5>{`Question ${currentQuestion} of ${testQuestions.length}`}</h5>
                     <ArrowIcon scaler={scaler} color={`white`}/>
@@ -137,16 +154,25 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion}){
             </div>
 
             {/* Next "quesiton" button */}
-            <div className={styles.section} style={{flexDirection:"row", justifyContent: "end"}}>
+            <div className={styles.section} 
+                    style={{flexDirection:"row", justifyContent: "end", gridColumn: (isReviewActive) ? "span 8" : "span 4"}}
+            >
                 <button 
                     id={styles.nextQuestionButton} 
                     onClick={goToThePreviousQuestion}
-                    style={{display: (currentQuestion!=1) ? "flex" : "none"}}
+                    style={{display: (currentQuestion!=1 || isReviewActive) ? "flex" : "none"}}
                 >
                     <h5>Back</h5>
                 </button>
 
-                <button id={styles.nextQuestionButton} onClick={goToTheNextQuestion}><h5>Next</h5></button>
+                <button id={styles.nextQuestionButton} 
+                        ref={nextButtonRef}
+                        onMouseDown={nextButtonDown}
+                        onClick={goToTheNextQuestion}
+                        style={{display: (isReviewActive) ? "none" : "flex"}}
+                >
+                    <h5>Next</h5>
+                </button>
             </div>
 
         </div>
