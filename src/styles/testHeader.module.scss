@@ -175,3 +175,45 @@
     transform: rotate(45deg);
 }
 
+
+
+.moreContainer{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: pxToRem(100px);
+    right: pxToRem(40px);
+    background-color: white;
+    box-shadow: 0px 0px 10px 4px rgb(0,0,0,0.1);
+    border-radius: pxToRem(6px);
+    z-index: 100;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.moreOption{
+    all: unset;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: pxToRem(16px);
+    padding-right: pxToRem(24px);
+    padding-left: pxToRem(24px);
+    gap: pxToRem(12px);
+    
+    h5{
+        font-size: pxToRem(14px);
+    }
+    
+}
+
+.moreOption:hover{
+    background-color: #f0f0f0;
+    text-decoration: underline;
+}
+.topOption{
+    padding-top: pxToRem(24px);
+}
+.bottomOption{
+    padding-bottom: pxToRem(24px);
+}

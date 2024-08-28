@@ -8,6 +8,8 @@ import MoreIcon from "./static/more-icon";
 import TextWithIcons from "./static/text-with-icons";
 import TimerIcon from "./static/timer-icon";
 import TimerCountdown from "./timer-countdown";
+import WarningIcon from "./static/warning-icon";
+import ExitIcon from "./static/exit-icon";
 
 
 function TestHeader(props){
@@ -30,25 +32,11 @@ function TestHeader(props){
     const [timerButtonTransparency, setTimerButtonTransparency] = useState("none");
 
 
-    const textsWithIcons = [
-        {
-            icons: [<HighlightIcon key={1}/>, <NoteIcon key={2}/>],
-            text: "Highlights & Notes",
-            toHandle: handleHighlight,
-        },
-        {
-            icons: [<MoreIcon key={1}/>],
-            text: "More",
-            toHandle: handleMore,
-        }
-    ]
 
     function handleHighlight(){
         //Add highlight behaviour
     }
-    function handleMore(){
-        //Add more behaviour
-    }
+
 
     function handleHideTimer(){
         setTimerDisplays( {
@@ -74,7 +62,8 @@ function TestHeader(props){
         setTimerButtonTransparency("");
     }
 
-    const [directionsDispay, setDirectionsDispay] = useState("none")
+    const [directionsDispay, setDirectionsDispay] = useState("none");
+    const [moreOptionsDispay,setMoreOptionsDispay] = useState("none");
 
     function toggleDirectionRules(){
         changeScaler();
@@ -82,20 +71,38 @@ function TestHeader(props){
         (directionsDispay==="none" ? setDirectionsDispay("flex") : setDirectionsDispay("none"));
 
     }
-    const directionRulesRef = useRef(null);
-    const directionsButton = useRef(null);
 
+    function toogleMoreOptions(){
+        (moreOptionsDispay==="none" ? setMoreOptionsDispay("flex") : setMoreOptionsDispay("none"));
+    }
+
+    function toogleHighlight(){
+        alert("Highlighting and notes creating are in development.")
+    }
+
+    const directionRulesRef = useRef(null);
+    const directionsButtonRef = useRef(null);
+    const moreOptionsRef =useRef(null);
+    const moreOptionsButtonRef =useRef(null);
     useEffect(()=>{
 
         function handleClickOutide (event){
             if(scaler===1 && 
                 !directionRulesRef.current.contains(event.target) &&
-                !directionsButton.current.contains(event.target)
+                !directionsButtonRef.current.contains(event.target)
               )
             {
                 
                 toggleDirectionRules();
             }
+
+            if(moreOptionsDispay==="flex" && 
+                !moreOptionsRef.current.contains(event.target) &&
+                !moreOptionsButtonRef.current.contains(event.target)
+              )
+                {
+                    toogleMoreOptions();
+                }
         }
             document.addEventListener("click", handleClickOutide);
 
@@ -103,7 +110,7 @@ function TestHeader(props){
                 document.removeEventListener("click", handleClickOutide);
             }
         
-    },[scaler]);
+    },[scaler, moreOptionsDispay]);
 
     const moduleTime = 1920;
 
@@ -127,7 +134,7 @@ function TestHeader(props){
                 </h4>
 
                 {/* Check directions button */}
-                <button ref={directionsButton} className={styles.directions} onClick={toggleDirectionRules}> 
+                <button ref={directionsButtonRef} className={styles.directions} onClick={toggleDirectionRules}> 
                     <h5>Directions</h5>
                     <ArrowIcon scaler={scaler} color={arrowColor}/>
                 </button>
@@ -190,17 +197,46 @@ function TestHeader(props){
             <div className={`${styles.section} ${styles.moreSection}`}>
 
                 {/* Buttons "Highlight" and "More" */}
-                {textsWithIcons.map((textsWithIcon,index)=>{
-                    return (<TextWithIcons 
-                                key={index} 
-                                icons={textsWithIcon.icons} 
-                                text={textsWithIcon.text} 
-                                textWithIconStyle={styles.textWithIcon} 
-                                centerIconsStyle={styles.centerIcons} 
-                                toHandle={textsWithIcon.toHandle}
-                            />)
-                })}
 
+                <button className={styles.textWithIcon} onClick={toogleHighlight}>
+                            
+                            <div className={styles.centerIcons}>
+                
+                                <HighlightIcon/>
+                                <NoteIcon/>
+                            </div>
+                
+                            <h6>Highlights & Notes</h6>
+                        
+                </button>
+
+                <button ref={moreOptionsButtonRef} 
+                        className={styles.textWithIcon} 
+                        onClick={toogleMoreOptions}
+                >
+                            
+                            <div className={styles.centerIcons}>
+                
+                                <MoreIcon/>
+                            </div>
+                
+                            <h6>More</h6>
+                        
+                </button>
+
+
+            </div>
+
+            <div ref={moreOptionsRef} className={styles.moreContainer} style={{display: moreOptionsDispay}}>
+                <button className={`${styles.moreOption} ${styles.topOption}`}>
+                    <ExitIcon/>
+                    <h5> Unscheduled Break </h5>
+                </button>
+
+                <button className={`${styles.moreOption} ${styles.bottomOption}`}>
+                    <WarningIcon/>
+                    <h5> Exit the Exam </h5>
+                </button>
             </div>
         </div>
     </header>

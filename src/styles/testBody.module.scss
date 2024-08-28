@@ -68,29 +68,29 @@
     box-shadow:0px 0px 0px 2px #6b6b6b inset;
   }
 
-  #paintYellow{
+  .paintYellow{
     background-color: #fffad7;
   }
 
-  #paintYellow:hover{
+  .paintYellow:hover{
     background-color: #ffe898;
   }
 
-  #paintBlue{
+  .paintBlue{
     background-color: #e7f5ff;
   }
 
-  #paintBlue:hover{
+  .paintBlue:hover{
     background-color: #b4dfff;
-
+  
   }
 
-  #paintPink{
+  .paintPink{
     background-color: #ffe5f8;
     
   }
 
-  #paintPink:hover{
+  .paintPink:hover{
     background-color: #fecff2;
   }
 
@@ -157,3 +157,4 @@
 #chooseUndeline:hover::after{
   display: flex;
 }
+

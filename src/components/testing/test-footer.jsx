@@ -54,6 +54,21 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion}){
         darkGrayColor : "#666666",
     }
 
+    function goToTheNextQuestion(){
+        if(currentQuestion!=testQuestions.length){
+            changeQuestion(currentQuestion+1);
+        }
+        else{
+            alert("Go to Review Page is in development");
+        }
+    }
+    
+    function goToThePreviousQuestion(){
+        if(currentQuestion!=1){
+            changeQuestion(currentQuestion-1);
+        }
+    }
+
     return (
     <footer className={styles.testFooter}>
 
@@ -122,8 +137,16 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion}){
             </div>
 
             {/* Next "quesiton" button */}
-            <div className={styles.section}>
-                <button id={styles.nextQuestionButton}><h5>Next</h5></button>
+            <div className={styles.section} style={{flexDirection:"row", justifyContent: "end"}}>
+                <button 
+                    id={styles.nextQuestionButton} 
+                    onClick={goToThePreviousQuestion}
+                    style={{display: (currentQuestion!=1) ? "flex" : "none"}}
+                >
+                    <h5>Back</h5>
+                </button>
+
+                <button id={styles.nextQuestionButton} onClick={goToTheNextQuestion}><h5>Next</h5></button>
             </div>
 
         </div>

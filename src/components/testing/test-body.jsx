@@ -58,9 +58,9 @@ function TestBody({question,setTestQuestions}){
 
                 if(
                     (
-                        (passageTextRef.current && passageTextRef.current.contains(event.target)) 
+                        (passageTextRef.current && passageTextRef.current.contains(event.target)) && (false) //Turned off for now
                         || 
-                        (questionTextRef.current && questionTextRef.current.contains(event.target))
+                        (questionTextRef.current && questionTextRef.current.contains(event.target)) && (false) //Turned off for now
                     ) 
                     && 
                     range.startOffset-range.endOffset!=0
@@ -96,8 +96,14 @@ function TestBody({question,setTestQuestions}){
     }, []);
     
 
+
+
+
     return (
+
+
         <div className={styles.testBody}>
+            
 
 
             <div id={styles.toolbar} style={{
@@ -105,9 +111,9 @@ function TestBody({question,setTestQuestions}){
                 top: toolbarPosition.top,
                 left: toolbarPosition.left,
             }}>
-                <button className={styles.highlight} id={styles.paintYellow}></button>
-                <button className={styles.highlight} id={styles.paintBlue}></button>
-                <button className={styles.highlight} id={styles.paintPink}></button>
+                <button className={`${styles.highlight} ${styles.paintYellow}`}/>
+                <button className={`${styles.highlight} ${styles.paintBlue}`} />
+                <button className={`${styles.highlight} ${styles.paintPink}`} />
 
 
                 <button className={styles.highlight} id={styles.chooseUndeline}>
@@ -138,6 +144,7 @@ function TestBody({question,setTestQuestions}){
             
             <DashedBorders childClass={styles.borderBox} bordersStrokeWidths={bordersStrokeWidths}/>
         </div>
+
     )
 }
 
