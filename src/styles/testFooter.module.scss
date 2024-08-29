@@ -68,17 +68,24 @@
     }
 }
 
+.buttonContainer{
+    height: 100%;
+    width: pxToRem(86px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-#nextQuestionButton{
+.nextQuestionButton{
    background-color: variables.$blue-color; 
    border-radius: 999rem;
    padding-left: pxToRem(24px);
    padding-right: pxToRem(24px);
    padding-top: pxToRem(12px);
    padding-bottom: pxToRem(12px);
-   align-self: flex-end;
-   @include darkButtons();
+   transition: 0.5s;
 
+   @include darkButtons();
    h5{
     user-select: none;
    }
@@ -87,9 +94,21 @@
 .nextQuestionButtonClick{
     text-decoration: underline;
     text-decoration-color: white;
-    border: pxToRem(1px) solid variables.$blue-color; 
-    transition: 1s;
+    border: pxToRem(2px) solid variables.$blue-color; 
+    box-shadow:0px 0px 0px 1px variables.$light-blue-color inset;
+    transition: 0.08s;
 }
+
+.inactiveQuestionButton{
+    pointer-events: none;
+    background-color: #ecedef;
+    transition: 0.5s;
+    h5{
+        color: #bbbaba;
+    }
+    
+}
+
 
 .allQuestions{
     position: absolute;

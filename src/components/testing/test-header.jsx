@@ -77,7 +77,7 @@ function TestHeader(props){
     }
 
     function toogleHighlight(){
-        alert("Highlighting and notes creating are in development.")
+        alert("Highlightes & notes are in development.")
     }
 
     const directionRulesRef = useRef(null);

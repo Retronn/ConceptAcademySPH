@@ -34,14 +34,25 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion, isReviewActiv
                 changeScaler();
             }
             
+            if(nextButtonRef.current.classList.contains(styles.nextQuestionButtonClick) && 
+                !nextButtonRef.current.contains(event.target))
+            {
+                nextButtonRef.current.classList.remove(styles.nextQuestionButtonClick);
+            }
+
+            if(backButtonRef.current.classList.contains(styles.nextQuestionButtonClick) &&
+                !backButtonRef.current.contains(event.target))
+                {
+                    backButtonRef.current.classList.remove(styles.nextQuestionButtonClick);
+                }
         }
         
-        document.addEventListener('click',handleClickOutside);
+        document.addEventListener('mousedown',handleClickOutside);
 
         return () =>{
-            document.removeEventListener('click', handleClickOutside);
+            document.removeEventListener('mousedown', handleClickOutside);
         }
-    }, [isQuesitonOverlayActive])
+    }, [isQuesitonOverlayActive, nextButtonDown, backButtonDown])
 
 
     const colors = {
@@ -54,10 +65,33 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion, isReviewActiv
         darkGrayColor : "#666666",
     }
     const nextButtonRef = useRef(null);
-
+    const backButtonRef = useRef(null);
 
     function nextButtonDown(){
         nextButtonRef.current.classList.add(styles.nextQuestionButtonClick);
+    }
+    function backButtonDown(){
+        backButtonRef.current.classList.add(styles.nextQuestionButtonClick);
+    }
+
+
+    function backButtonUp(){
+        goToThePreviousQuestion();
+        backButtonRef.current.classList.remove(styles.nextQuestionButtonClick);
+        backButtonRef.current.classList.add(styles.inactiveQuestionButton);
+        setTimeout(()=>{
+            backButtonRef.current.classList.remove(styles.inactiveQuestionButton);
+        },600);
+    }
+
+    function nextButtonUp(){
+        
+        goToTheNextQuestion();
+        nextButtonRef.current.classList.remove(styles.nextQuestionButtonClick);
+        nextButtonRef.current.classList.add(styles.inactiveQuestionButton);
+        setTimeout(()=>{
+            nextButtonRef.current.classList.remove(styles.inactiveQuestionButton);
+        },600);
     }
 
     function goToTheNextQuestion(){
@@ -155,24 +189,34 @@ function TestFooter({testQuestions,currentQuestion,changeQuestion, isReviewActiv
 
             {/* Next "quesiton" button */}
             <div className={styles.section} 
-                    style={{flexDirection:"row", justifyContent: "end", gridColumn: (isReviewActive) ? "span 8" : "span 4"}}
+                    style={{flexDirection:"row", height: "3.6rem", alignItems: "center",  gap: "0.3rem",
+                            justifyContent: "end", gridColumn: (isReviewActive) ? "span 8" : "span 4"}}
             >
-                <button 
-                    id={styles.nextQuestionButton} 
-                    onClick={goToThePreviousQuestion}
-                    style={{display: (currentQuestion!=1 || isReviewActive) ? "flex" : "none"}}
-                >
-                    <h5>Back</h5>
-                </button>
 
-                <button id={styles.nextQuestionButton} 
-                        ref={nextButtonRef}
-                        onMouseDown={nextButtonDown}
-                        onClick={goToTheNextQuestion}
-                        style={{display: (isReviewActive) ? "none" : "flex"}}
-                >
-                    <h5>Next</h5>
-                </button>
+
+                <div className={styles.buttonContainer} style={{display: (currentQuestion!=1 || isReviewActive) ? "flex" : "none"}}>
+                    <button 
+                        className={styles.nextQuestionButton} 
+                        ref={backButtonRef}
+                        onMouseDown={backButtonDown}
+                        onMouseUp={backButtonUp}
+                        
+                    >
+                        <h5>Back</h5>
+                    </button>
+                </div>
+
+
+                <div className={styles.buttonContainer} style={{display: (isReviewActive) ? "none" : "flex"}}>
+                    <button className={styles.nextQuestionButton} 
+                            ref={nextButtonRef}
+                            onMouseDown={nextButtonDown}
+                            onMouseUp={nextButtonUp}
+                            
+                    >
+                        <h5>Next</h5>
+                    </button>
+                </div>
             </div>
 
         </div>

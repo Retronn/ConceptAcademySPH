@@ -28,19 +28,7 @@ function AnswerChoice(props){
 
 
     function toggleCrossAnswerChoice(){
-        // props.setCrossedChoices((prev) => {
-        //     return (prev.map((element, index) => {
-        //         if(index===props.index){
-        //             return !element;
-        //         }
-        //         return element;
-        //     }))
-        // });
 
-
-        // if(props.isSelected){
-        //     props.setSelectedChoice(null);
-        // }
 
 
         props.setTestQuestions((testQuestions)=> {
