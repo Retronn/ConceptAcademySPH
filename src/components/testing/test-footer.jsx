@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
-import styles from '../../styles/TestFooter.module.scss';
+import styles from '../../styles/testing/TestFooter.module.scss';
 
 import ArrowIcon from "./static/arrow-icon";
 import XIcon from "./static/x-icon";

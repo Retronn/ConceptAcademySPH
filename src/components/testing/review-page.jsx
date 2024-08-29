@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '../../styles/reviewPage.module.scss';
+import styles from '../../styles/testing/reviewPage.module.scss';
 import BookmarkIcon from "./static/bookmark-icon";
 import TestQuestionLabel from "./test-question-label";
 import DashedBorders from "./static/dashed-borders";

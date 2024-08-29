@@ -1,6 +1,6 @@
 import React from "react";
 import ScaleIcon from "./static/scale-icon";
-import styles from '../../styles/scalingButton.module.scss'
+import styles from '../../styles/testing/scalingButton.module.scss'
 
 function ScalingButton(props){
 

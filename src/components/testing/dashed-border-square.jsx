@@ -4,8 +4,6 @@ function DashedBorderSquare({ size = 1000 }) {
   const originalSize = 25; // The original dimensions of the SVG
   const scaleFactor = size / originalSize;
 
-  // Define the key properties using the scale factor
-  const rectSize = originalSize * scaleFactor; // Scale the size of the rectangle
   const strokeDasharray = `${4 * scaleFactor} ${2 * scaleFactor}`; // Scale the dash and gap lengths
   const strokeWidth = 1 / scaleFactor; // Adjust stroke width for consistent appearance
 

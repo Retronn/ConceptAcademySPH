@@ -1,5 +1,5 @@
 import React, {useState,useRef,useEffect} from "react";
-import styles from '../../styles/testQuestion.module.scss';
+import styles from '../../styles/testing/testQuestion.module.scss';
 
 // Active Components
 import AnswerChoice from "./answer-choice";

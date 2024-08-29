@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from '../../styles/testHeader.module.scss';
+import styles from '../../styles/testing/testHeader.module.scss';
 
 import ArrowIcon from "./static/arrow-icon";
 import HighlightIcon from "./static/highlight-icon";

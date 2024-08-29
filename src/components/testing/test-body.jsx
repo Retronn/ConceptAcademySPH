@@ -1,7 +1,7 @@
 import React, {useState,useEffect, useRef} from "react";
 import TestPassage from "./test-passage";
 import TestQuestion from "./test-question";
-import styles from '../../styles/testBody.module.scss'
+import styles from '../../styles/testing/testBody.module.scss'
 import DashedBorders from "./static/dashed-borders";
 import AddNoteIcon from "./static/add-note-icon";
 import TrashBinIcon from "./static/trash-bin-icon";

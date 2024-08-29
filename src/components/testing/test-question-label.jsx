@@ -1,6 +1,6 @@
 import React from "react";
 import MapMarkerIcon from "./static/map-marker-icon";
-import styles from "../../styles/testQuestionLabel.module.scss"
+import styles from "../../styles/testing/testQuestionLabel.module.scss"
 import BookmarkIcon from "./static/bookmark-icon";
 
 function TestQuestionLabel({question, isCurrent, changeQuestion,closeOverlay, isReview=false}){

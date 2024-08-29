@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/testPassageText.module.scss"
+import styles from "../../styles/testing/testPassageText.module.scss"
 
 function TestPassageText({passage}){
     

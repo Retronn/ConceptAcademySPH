@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import styles from '../../styles/testPassage.module.scss';
+import styles from '../../styles/testing/testPassage.module.scss';
 import TestPassageText from "./test-passage-text";
 import ScaleIcon from "./static/scale-icon";
 import ScalingButton from "./scaling-button";

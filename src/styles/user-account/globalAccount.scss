@@ -1,0 +1,78 @@
+@use 'sass:math';
+@use 'variables';
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+@mixin header(){
+    all: unset;
+    color: variables.$main-black;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+}
+
+@mixin paragraph(){
+    all: unset;
+    color: variables.$main-black;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+}
+
+button{
+    all: unset;
+    user-select: none;
+    cursor: pointer;
+}
+
+h1{
+    @include header();
+    font-size: pxToRem(60px);
+}
+
+h2{
+    @include header();
+    font-size: pxToRem(50px);
+}
+
+h3{
+    @include header();
+    font-size: pxToRem(34px);
+}
+
+h4{
+    @include header();
+    font-size: pxToRem(28px);
+}
+
+h5{
+    @include header();
+    font-size: pxToRem(20px);
+}
+
+h6{
+    @include header();
+    font-size: pxToRem(16px);
+}
+
+p{
+    @include paragraph();
+}
+
+
+.paragraph-1{
+    font-size: pxToRem(34px);
+}
+
+.paragraph-2{
+    font-size: pxToRem(28px);
+}
+.paragraph-3{
+    font-size: pxToRem(24px);
+}
+
+.paragraph-4{
+    font-size: pxToRem(20px);
+}
+
+.paragraph-5{
+    font-size: pxToRem(16px);
+}

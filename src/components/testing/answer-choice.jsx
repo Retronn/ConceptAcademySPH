@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import styles from "../../styles/answerChoice.module.scss"
+import styles from "../../styles/testing/answerChoice.module.scss"
 
 function AnswerChoice(props){
     const answerRef = useRef(null);
