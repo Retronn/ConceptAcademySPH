@@ -1,10 +1,13 @@
 import React from "react";
 
 
-function TestIcon(){
+function TestIcon({color}){
     return(
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path strokeWidth="0" d="M19 3H5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h6v2H7a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2h-4v-2h6a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3m1 11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1Z" />
+            <g fill="none" strokeWidth="1.5">
+                <path d="M2 9c0-2.828 0-4.243.879-5.121C3.757 3 5.172 3 8 3h8c2.828 0 4.243 0 5.121.879C22 4.757 22 6.172 22 9v1c0 2.828 0 4.243-.879 5.121C20.243 16 18.828 16 16 16H8c-2.828 0-4.243 0-5.121-.879C2 14.243 2 12.828 2 10z" />
+                <path strokeLinecap="round" d="M12 19v-2.5m0 2.5l6 2m-6-2l-6 2" />
+            </g>
         </svg>
     );
 }

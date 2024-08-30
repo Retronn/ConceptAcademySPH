@@ -8,6 +8,7 @@
     color: variables.$main-black;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    display: block;
 }
 
 @mixin paragraph(){
@@ -15,6 +16,7 @@
     color: variables.$main-black;
     font-family: "Montserrat", sans-serif;
     font-weight: normal;
+    display: block;
 }
 
 button{
@@ -50,7 +52,8 @@ h5{
 
 h6{
     @include header();
-    font-size: pxToRem(16px);
+    font-weight: 500;
+    font-size: pxToRem(12px);
 }
 
 p{
@@ -75,4 +78,8 @@ p{
 
 .paragraph-5{
     font-size: pxToRem(16px);
+}
+
+.paragraph-6{
+    font-size: pxToRem(14px);
 }
