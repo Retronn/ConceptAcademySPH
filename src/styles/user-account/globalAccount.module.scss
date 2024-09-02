@@ -19,67 +19,70 @@
     display: block;
 }
 
-button{
+.button-default{
     all: unset;
     user-select: none;
     cursor: pointer;
 }
 
-h1{
+.h1{
     @include header();
     font-size: pxToRem(60px);
 }
 
-h2{
+.h2{
     @include header();
     font-size: pxToRem(50px);
 }
 
-h3{
+.h3{
     @include header();
     font-size: pxToRem(34px);
 }
 
-h4{
+.h4{
     @include header();
     font-size: pxToRem(28px);
 }
 
-h5{
+.h5{
     @include header();
     font-size: pxToRem(20px);
 }
 
-h6{
+.h6{
     @include header();
     font-weight: 500;
     font-size: pxToRem(12px);
 }
 
-p{
+
+
+.p1{
     @include paragraph();
-}
-
-
-.paragraph-1{
     font-size: pxToRem(34px);
 }
 
-.paragraph-2{
+.p2{
+    @include paragraph();
     font-size: pxToRem(28px);
 }
-.paragraph-3{
+.p3{
+    @include paragraph();
     font-size: pxToRem(24px);
 }
 
-.paragraph-4{
+.p4{
+    @include paragraph();
     font-size: pxToRem(20px);
 }
 
-.paragraph-5{
+.p5{
+    @include paragraph();
     font-size: pxToRem(16px);
 }
 
-.paragraph-6{
+.p6{
+    @include paragraph();
     font-size: pxToRem(14px);
 }

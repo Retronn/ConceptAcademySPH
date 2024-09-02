@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../styles/testing/testPassageText.module.scss"
+import global from "../../styles/testing/globalTesting.module.scss";
 
 function TestPassageText({passage}){
     
@@ -13,22 +14,22 @@ function TestPassageText({passage}){
         }
         else if(typeWithContent.type==="header"){
             return(
-                <div key={index} className={`${styles.passageHeader} testFont`}>{typeWithContent.content}</div>
+                <div key={index} className={`${styles.passageHeader} ${global.testFont}`}>{typeWithContent.content}</div>
             )
         }
         else if(typeWithContent.type==="standard"){
             return(
-                <span key={index} className={`testFont`}>{typeWithContent.content}</span>
+                <span key={index} className={`${global.testFont}`}>{typeWithContent.content}</span>
             )
         }
         else if(typeWithContent.type==="copyrights"){
             return(
-                <div key={index} className={`${styles.passageCopyrights} testFont`}>©{typeWithContent.content}</div>
+                <div key={index} className={`${styles.passageCopyrights} ${global.testFont}`}>©{typeWithContent.content}</div>
             )
         }
         else if(typeWithContent.type==="italics"){
             return(
-                <span key={index} className={`${styles.italicText} testFont`}>{typeWithContent.content}</span>
+                <span key={index} className={`${styles.italicText} ${global.testFont}`}>{typeWithContent.content}</span>
             )
         }
         else if(typeWithContent.type==="graph"){
@@ -44,7 +45,7 @@ function TestPassageText({passage}){
                     <ul>
                         {typeWithContent.content.map((note,index) => {
                            return (
-                                    <li className="testFont" key={index}> 
+                                    <li className={global.testFont} key={index}> 
                                         {note.map((typeWithContent,index) => fetchPassage(typeWithContent, index))} 
                                     </li>
                                 )

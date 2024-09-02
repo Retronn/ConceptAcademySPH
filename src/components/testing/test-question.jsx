@@ -1,5 +1,6 @@
 import React, {useState,useRef,useEffect} from "react";
 import styles from '../../styles/testing/testQuestion.module.scss';
+import global from "../../styles/testing/globalTesting.module.scss";
 
 // Active Components
 import AnswerChoice from "./answer-choice";
@@ -174,7 +175,7 @@ function TestQuestion({setTestQuestions,...props}){
                         
                         {/* Question number indicator */}
                         <div className={styles.questionNum}>
-                            <h4>{props.question.questionNumber}</h4>
+                            <h4 className={global.h4}>{props.question.questionNumber}</h4>
                         </div>
 
 
@@ -182,7 +183,7 @@ function TestQuestion({setTestQuestions,...props}){
                         <button className={styles.markReview} onClick={markQuestionForReview}>
 
                             <BookmarkIcon fillColor={markForReviewButton.backgroundColor} strokeWidth={markForReviewButton.strokeWidth}/>
-                            <h5 style={{fontWeight: markForReviewButton.fontWeigth}}>Mark for Review</h5>
+                            <h5 className={global.h5} style={{fontWeight: markForReviewButton.fontWeigth}}>Mark for Review</h5>
 
                         </button>
 
@@ -190,7 +191,7 @@ function TestQuestion({setTestQuestions,...props}){
                         {/* Button to show up answer choices' crossout buttons */}
                         <div className={styles.crossOutArea}>
                             <button className={styles.crossButton} style={{backgroundColor: strikethroughOptions.backgroundColor}} onClick={toogleStrikethroughOptions}>
-                            <LettersCrossedIcon color={strikethroughOptions.textColor}/>
+                                <LettersCrossedIcon color={strikethroughOptions.textColor}/>
                             </button>
                         </div>
 
@@ -201,7 +202,7 @@ function TestQuestion({setTestQuestions,...props}){
 
 
                     {/* Question sentence itself */}
-                    <p ref={props.reference} className={`testFont + ${styles.question}`}>
+                    <p ref={props.reference} className={`${global.testFont} + ${styles.question}`}>
                         {questionStatement}
                     </p>
 

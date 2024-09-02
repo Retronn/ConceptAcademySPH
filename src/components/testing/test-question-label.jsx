@@ -1,6 +1,7 @@
 import React from "react";
 import MapMarkerIcon from "./static/map-marker-icon";
-import styles from "../../styles/testing/testQuestionLabel.module.scss"
+import styles from "../../styles/testing/testQuestionLabel.module.scss";
+import global from "../../styles/testing/globalTesting.module.scss";
 import BookmarkIcon from "./static/bookmark-icon";
 
 function TestQuestionLabel({question, isCurrent, changeQuestion,closeOverlay, isReview=false}){
@@ -14,7 +15,7 @@ function TestQuestionLabel({question, isCurrent, changeQuestion,closeOverlay, is
 
 
     return(
-        <button onClick={handleClick} className={styles.labelButton}>
+        <button onClick={handleClick} className={`${styles.labelButton} ${global.mainFont}`}>
             <div className={styles.container} style={{
                 width: (isReview) ? "2.42rem" : "1.75rem",
                 height: (isReview) ? "2.42rem" : "1.75rem",

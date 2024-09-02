@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import global from "../../styles/testing/globalTesting.module.scss";
 import styles from "../../styles/testing/answerChoice.module.scss"
 
 function AnswerChoice(props){
@@ -135,16 +136,16 @@ function AnswerChoice(props){
                 
                 > {props.value} </div>
 
-                <p className={`testFont ${styles.answerText}  ${(props.isCrossed && props.answerCrossoutButtonsDisplay!="none") ? styles.inactiveText : ""}`}>{props.content}</p>
+                <p className={`${global.testFont} ${styles.answerText}  ${(props.isCrossed && props.answerCrossoutButtonsDisplay!="none") ? styles.inactiveText : ""}`}>{props.content}</p>
 
             </button>
 
             {/* Cross the answer choice out button */}
             <button onClick={toggleCrossAnswerChoice} className={styles.answerCrossoutButton} style={{display: props.answerCrossoutButtonsDisplay}}>
-                <div className={styles.answerLetter} id="crossOut" style={{display: (props.isCrossed) ? "none" : ""}}>
+                <div className={`${styles.answerLetter} ${global.mainFont}`} id="crossOut" style={{display: (props.isCrossed) ? "none" : ""}}>
                     {props.value}
                 </div>
-                <h6 style={{display: (props.isCrossed) ? "" : "none"}}>Undo</h6>
+                <h6 className={global.h6} style={{display: (props.isCrossed) ? "" : "none"}}>Undo</h6>
             </button>
 
         </div>

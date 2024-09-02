@@ -1,5 +1,6 @@
 import React from "react";
 import styles from '../../styles/testing/reviewPage.module.scss';
+import global from "../../styles/testing/globalTesting.module.scss";
 import BookmarkIcon from "./static/bookmark-icon";
 import TestQuestionLabel from "./test-question-label";
 import DashedBorders from "./static/dashed-borders";
@@ -13,18 +14,18 @@ function ReviewPage({question,colors,testQuestions,toggleReviewPage,changeQuesti
         <>
             <div className={`${styles.testBody} ${styles.reviewPage}`} style={{display: (isReviewActive) ? "flex" : "none"}}>
 
-                <h4>Check Your Work</h4>
+                <h4 className={global.h6}>Check Your Work</h4>
                 
                 <div className={styles.allQuestions}>
 
                     <div id={styles.sectionInfo}> 
-                        <h4>{sectionInfo}</h4>
+                        <h4 className={global.h4}>{sectionInfo}</h4>
 
 
                         <div className={styles.hintsContainer}>
                             <div className={styles.iconWithText}>
                                 <div className={styles.dashedSqare}/> 
-                                <p>Unanswered</p>
+                                <p className={global.p}>Unanswered</p>
                             </div>    
 
                             <div className={styles.iconWithText} id={styles.bookmark}>
@@ -33,7 +34,7 @@ function ReviewPage({question,colors,testQuestions,toggleReviewPage,changeQuesti
                                     strokeColor = {colors.lightRedColor} 
                                     
                                     />
-                                <p>For Review</p>
+                                <p className={global.p}>For Review</p>
                             </div>  
                         </div>
 

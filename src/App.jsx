@@ -1,13 +1,13 @@
 import React from "react";
-import Test from "./components/testing/test";
+import global from "./styles/testing/globalTesting.module.scss";
 import AccountPage from "./components/user-account/account-page";
-
+import Test from "./components/testing/test";
 
 function App(){
 
 
   return(
-    <div className="App">
+    <div className={global.App}>
       {/* <Test/> */}
       <AccountPage/>
     </div>

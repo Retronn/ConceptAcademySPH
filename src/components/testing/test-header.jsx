@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from '../../styles/testing/testHeader.module.scss';
-
+import global from "../../styles/testing/globalTesting.module.scss";
 import ArrowIcon from "./static/arrow-icon";
 import HighlightIcon from "./static/highlight-icon";
 import NoteIcon from "./static/note-icon";
 import MoreIcon from "./static/more-icon";
-import TextWithIcons from "./static/text-with-icons";
 import TimerIcon from "./static/timer-icon";
 import TimerCountdown from "./timer-countdown";
 import WarningIcon from "./static/warning-icon";
@@ -128,21 +127,21 @@ function TestHeader(props){
             <div className={styles.section}>
 
                 {/* Section title */}
-                <h4> 
+                <h4 className={global.h4}> 
                    {`Section ${props.question.section}: 
                    ${(props.question.testPart==1) ? "Reading and Writing" : "Math"}`} 
                 </h4>
 
                 {/* Check directions button */}
                 <button ref={directionsButtonRef} className={styles.directions} onClick={toggleDirectionRules}> 
-                    <h5>Directions</h5>
+                    <h5 className={global.h5}>Directions</h5>
                     <ArrowIcon scaler={scaler} color={arrowColor}/>
                 </button>
                 
             </div>
 
             <div ref={directionRulesRef} className={styles.directionsRules} style={{display: directionsDispay}}>
-                <p className="testFont">
+                <p className={global.testFont}>
                     The questions in this section address a number 
                     of important reading and writing skills. 
                     Each question includes one or more passages, 
@@ -151,12 +150,12 @@ function TestHeader(props){
                     and then choose the a best answer to the question based on the 
                     passage(s). 
                 </p>
-                <p className="testFont">
+                <p className={global.testFont}>
                     All questions in this section are multiple-choice with four answer choices. Each question has a single best answer.
                 </p>
 
                 <div className={styles.buttonArea}>
-                    <button className={styles.closeButton} onClick={toggleDirectionRules}>
+                    <button className={`${styles.closeButton}`} onClick={toggleDirectionRules}>
                         Close
                     </button>
                 </div>
@@ -169,7 +168,7 @@ function TestHeader(props){
 
                 
                 <div className={styles.timerBox}>
-                    <h4 id={styles.timer} style={{display: timerDisplays.timer}}>
+                    <h4 className={global.h4} id={styles.timer} style={{display: timerDisplays.timer}}>
                         <TimerCountdown initialTime={moduleTime} onTimerZero={onTimerZero}/>
                     </h4>
 
@@ -187,7 +186,7 @@ function TestHeader(props){
                     
                 > 
 
-                    <h5 style={{opacity: timerButtonTextOpacity}}>{timerButtonText}</h5>
+                    <h5 className={global.h5} style={{opacity: timerButtonTextOpacity}}>{timerButtonText}</h5>
 
                 </button>
 
@@ -206,7 +205,7 @@ function TestHeader(props){
                                 <NoteIcon/>
                             </div>
                 
-                            <h6>Highlights & Notes</h6>
+                            <h6 className={global.h6}>Highlights & Notes</h6>
                         
                 </button>
 
@@ -220,7 +219,7 @@ function TestHeader(props){
                                 <MoreIcon/>
                             </div>
                 
-                            <h6>More</h6>
+                            <h6 className={global.h6}>More</h6>
                         
                 </button>
 
@@ -230,12 +229,12 @@ function TestHeader(props){
             <div ref={moreOptionsRef} className={styles.moreContainer} style={{display: moreOptionsDispay}}>
                 <button className={`${styles.moreOption} ${styles.topOption}`}>
                     <ExitIcon/>
-                    <h5> Unscheduled Break </h5>
+                    <h5 className={global.h5}> Unscheduled Break </h5>
                 </button>
 
                 <button className={`${styles.moreOption} ${styles.bottomOption}`}>
                     <WarningIcon/>
-                    <h5> Exit the Exam </h5>
+                    <h5 className={global.h5}> Exit the Exam </h5>
                 </button>
             </div>
         </div>

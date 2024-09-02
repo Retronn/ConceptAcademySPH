@@ -16,49 +16,53 @@
 
 
 
-:root {
-    --main-bg-color: brown;
-  }
 
 * {
     font-size: 100%;
     margin: 0;
-    padding: 0;
-    font-family: Roboto;
-    
+    padding: 0;  
     color: variables.$main-dark-color;
     ::selection{
         background: variables.$test-selection-color;
     }
 }
 
-
-h4{
-    font-size: variables.$header-4;
-    font-weight: 450;
-    text-overflow: ellipsis;
-    overflow: hidden; 
-    white-space: nowrap;
-    
-}
-
-h5{
-    font-size: variables.$header-5;
-    font-weight: 450;
-    
-}
-
-h6{
-    font-size: variables.$header-6;
-    font-weight: 450;
-    margin-top: pxToRem(10px);
-}
 button{
     all: unset;
     cursor: pointer;
     width: fit-content;
 }
 
+.p{
+    font-family: Roboto;
+}
+
+.mainFont{
+    font-family: Roboto;
+}
+
+
+.h4{
+    font-size: variables.$header-4;
+    font-weight: 450;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+    font-family: Roboto;
+}
+
+.h5{
+    font-size: variables.$header-5;
+    font-weight: 450;
+    font-family: Roboto;
+}
+
+.h6{
+    font-size: variables.$header-6;
+    font-weight: 450;
+    margin-top: pxToRem(10px);
+    font-family: Roboto;
+}
 
 .App{
     display: flex;

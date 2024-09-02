@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../../styles/user-account/sidebar.module.scss";
-
+import global from "../../styles/user-account/globalAccount.module.scss";
 import ConceptAcademyLogo from "./static/concept-academy-logo";
 import TestIcon from "./static/icons/tests-icon";
 import AnalysisIcon from "./static/icons/analysis-icon";
@@ -40,33 +40,33 @@ function Sidebar(props){
 
                     <button className={styles.sidebarOption}>
                         <TestIcon/>
-                        <h6>My tests</h6> 
+                        <h6 className={global.h6}>My tests</h6> 
                     </button>
 
 
                     <button className={styles.sidebarOptionSelected}>
                         <AnalysisIcon color={colors.mainGray}/>
-                        <h6>Dashboard</h6> 
+                        <h6 className={global.h6}>Dashboard</h6> 
                     </button>
 
                     <button className={styles.sidebarOption} onClick={setFocusOption}>
                         <FocusIcon color={colors.mainGray}/>
-                        <h6>Focus areas</h6> 
+                        <h6 className={global.h6}>Focus areas</h6> 
                     </button>
 
                     <button className={styles.sidebarOption}>
                         <FeatherIcon color={colors.mainGray}/>
-                        <h6>Blogpost</h6> 
+                        <h6 className={global.h6}>Blogpost</h6> 
                     </button>
 
                     <button className={styles.sidebarOption}>
                         <StarIcon color={colors.mainGray}/>
-                        <h6>Favorites</h6> 
+                        <h6 className={global.h6}>Favorites</h6> 
                     </button>
 
                     <button className={styles.sidebarOption}>
                         <ShopIcon color={colors.mainGray}/>
-                        <h6>Shop</h6> 
+                        <h6 className={global.h6}>Shop</h6> 
                     </button>
 
                 </div>
@@ -76,13 +76,13 @@ function Sidebar(props){
 
                     <button className={styles.sidebarOption}>
                         <SupportIcon color={colors.mainGray}/>
-                        <h6>Support</h6> 
+                        <h6 className={global.h6}>Support</h6> 
                     
                     </button>
 
                     <button className={styles.sidebarOption}>
                         <SettingsIcon color={colors.mainGray}/>
-                        <h6>Settings</h6> 
+                        <h6 className={global.h6}>Settings</h6> 
                     </button>
 
                 </div>

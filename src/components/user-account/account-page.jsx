@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import "../../styles/user-account/globalAccount.scss";
+import React, { useRef, useState } from "react";
+import global from "../../styles/user-account/globalAccount.module.scss";
 import styles from "../../styles/user-account/accountPage.module.scss";
 import Sidebar from "./sidebar";
 import QuestionIcon from "./static/icons/question-icon";
 import MyTestsSection from "./my-tests-section";
+import DashboardPage from "./dashboard-page";
 
 
 function AccountPage(){
@@ -15,7 +16,10 @@ function AccountPage(){
     }
 
     const userLogo = "./userLogo.svg";
-    const [activeSection,setActiveSection] = useState("MyTests");
+
+
+    
+
 
 
     return(
@@ -33,8 +37,8 @@ function AccountPage(){
                 <div className={styles.header}>
 
                     <div className={styles.greetingsArea}>
-                        <h4>Welcome, Alexandr!</h4>
-                        <p>It's a perfect day to practice!</p>
+                        <h4 className={global.h4}>Welcome, Alexandr!</h4>
+                        <p className={global.p5}>It's a perfect day to practice!</p>
                     </div>
 
                     <div className={styles.profileArea}>
@@ -47,6 +51,8 @@ function AccountPage(){
 
                         <button className={styles.userProfile}>
                             <img src={userLogo}/>
+                            
+                        
                         </button>
   
                     </div>

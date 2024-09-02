@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "../../styles/testing/globalTesting.scss";
+import global from "../../styles/testing/globalTesting.module.scss";
 import styles from "../../styles/testing/test.module.scss";
 import TestHeader from "./test-header";
 import TestFooter from "./test-footer";

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import styles from '../../styles/testing/testPassage.module.scss';
+import global from "../../styles/testing/globalTesting.module.scss";
 import TestPassageText from "./test-passage-text";
 import ScaleIcon from "./static/scale-icon";
 import ScalingButton from "./scaling-button";
@@ -85,7 +86,7 @@ function TestPassage({passageRef,passage}) {
         <ScalingButton 
             color={colors.lightGrayColor} 
             scaleObject={passageRef} 
-            scalerId={"testPassageScaler"}
+            scalerId={global.testPassageScaler}
             transformer={scalersTransformers.passage}
             resizePosition = {resizePosition}
             setTransformer = {setScalersTransformers}
@@ -95,7 +96,7 @@ function TestPassage({passageRef,passage}) {
         <ScalingButton 
                       color={colors.lightGrayColor} 
                       scaleObject={passageRef} 
-                      scalerId={"testQuestionScaler"}
+                      scalerId={global.testQuestionScaler}
                       transformer={scalersTransformers.question}
                       setTransformer = {setScalersTransformers}
                       resizePosition = {resizePosition}
