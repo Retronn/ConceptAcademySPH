@@ -17,6 +17,7 @@ function AccountPage(){
 
     const userLogo = "./userLogo.svg";
 
+    const [activeSection,setActiveSection] = useState("MyTests");
 
     
 
