@@ -1,0 +1,124 @@
+@use 'sass:math';
+@use 'variables';
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+@mixin testCard(){
+    width: pxToRem(150px);
+    height: pxToRem(200px);
+    border-radius: pxToRem(8px);
+    border: pxToRem(3px) solid variables.$main-black;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.controlArea{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: pxToRem(40px);
+}
+
+.switch{
+    display: flex;
+    overflow: hidden;
+    background-color: variables.$lightest-gray;
+    border-radius: pxToRem(8px);
+}
+
+.switchButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: pxToRem(5px);
+
+    margin: pxToRem(4px);
+
+    padding-top: pxToRem(4px);
+    padding-bottom: pxToRem(4px);
+    padding-right: pxToRem(12px);
+    padding-left: pxToRem(12px);
+    
+    border-radius: pxToRem(6px);
+    
+    h6{
+        color: variables.$main-gray;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+    svg{
+        height: pxToRem(12px);
+        stroke: variables.$main-gray;
+        fill: variables.$main-gray;
+        transition: 0.3s ease;
+    }
+}
+
+.switchButton:hover{
+    
+    h6{
+        color: variables.$main-black;
+    }
+    svg{
+        stroke: variables.$main-black;
+        fill: variables.$main-black;
+    }
+}
+
+.activeSwitchButton{
+    
+    
+    background-color: white;
+    h6{
+        color: variables.$main-black;
+    }
+    svg{
+        height: pxToRem(12px);
+        stroke: white;
+        fill: white;
+    }
+}
+
+.dataGrid{
+    overflow: auto;
+    width: 100%;
+    min-height: pxToRem(700px);
+    max-height: 100%;
+    display: grid;
+
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+
+    padding: pxToRem(20px);
+
+    gap: pxToRem(20px);
+}
+
+.predictedScore{
+    grid-row: span 4;
+    grid-column: span 4;
+    background-color: red;
+    border: pxToRem(2px) solid variables.$main-black;
+    border-radius: pxToRem(12px);
+    padding: pxToRem(20px);
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(20px);
+    h6{
+        font-weight: 600;
+    }
+
+}
+
+.donutChart{
+    
+    background-color: green;
+    
+    aspect-ratio: 1/1;
+}

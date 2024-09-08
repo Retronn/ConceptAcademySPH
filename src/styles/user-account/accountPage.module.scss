@@ -17,18 +17,36 @@
 
 
 .mainContentArea{
+    max-height: 100%;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
     padding-left: pxToRem(20px);
     padding-right: pxToRem(20px);
-    padding-top: pxToRem(20px);
+    padding-top: pxToRem(10px);
+    gap: pxToRem(40px);
+    
+}
+
+.mainContentArea::after{
+    position: absolute;
+    content: '';
+    height: pxToRem(2px);
+    width: 100%;
+    left: 0;
+    background-color: variables.$light-gray;
+    top: pxToRem(44px);
+    margin-top: pxToRem(10px);
 }
 
 .header{
     display: flex;
-    
+    position: relative;
+    align-items: center;
 }
+
+
 
 
 .profileArea{
@@ -50,7 +68,7 @@
 .userProfile{
 
     img{
-        height: pxToRem(32px);
+        height: pxToRem(28px);
         fill: variables.$main-black;
     }
 }
@@ -59,8 +77,9 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    padding-top: pxToRem(30px);
+    overflow: hidden;
     gap: pxToRem(20px);
+    
 }
 
 

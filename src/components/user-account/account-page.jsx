@@ -38,7 +38,7 @@ function AccountPage(){
                 <div className={styles.header}>
 
                     <div className={styles.greetingsArea}>
-                        <h4 className={global.h4}>Welcome, Alexandr!</h4>
+                        
                         <p className={global.p5}>It's a perfect day to practice!</p>
                     </div>
 
@@ -62,9 +62,11 @@ function AccountPage(){
 
                 <div className={styles.contentArea}>
 
-                    <MyTestsSection/>
+                    <MyTestsSection isActive = {false} />
+                    <DashboardPage isActive = {true}/>
 
                 </div>
+
 
             </div>
 

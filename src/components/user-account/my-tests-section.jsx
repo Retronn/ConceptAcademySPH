@@ -7,11 +7,11 @@ import DevicesIcon from "./static/icons/devices-icon";
 import TrashbinIcon from "./static/icons/trashbin-icon";
 import ProgressIcon from "./static/icons/progress-icon";
 
-function MyTestsSection(){
+function MyTestsSection({isActive}){
     return(
 
         <>
-            <div className={styles.controlArea}>
+            <div className={styles.controlArea} style={{display: (isActive) ? "flex" : "none"}}>
 
                 <h5 className={global.h5}>Your Tests</h5>
                 <div className={styles.selector}>
@@ -30,7 +30,7 @@ function MyTestsSection(){
             </div>
 
 
-            <div className={styles.testsArea}>
+            <div className={styles.testsArea} style={{display: (isActive) ? "flex" : "none"}}>
                                 
 
                 <button className={styles.createTestButton}>
