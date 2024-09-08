@@ -1,0 +1,170 @@
+@use 'sass:math';
+@use 'variables';
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+@mixin testCard(){
+    width: pxToRem(150px);
+    height: pxToRem(200px);
+    border-radius: pxToRem(8px);
+    border: pxToRem(3px) solid variables.$main-black;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.controlArea{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: pxToRem(40px);
+}
+
+.selector{
+    display: flex;
+
+    overflow: hidden;
+    border: pxToRem(1px) solid variables.$main-black;
+    border-radius: pxToRem(5px);
+}
+
+.selectorButton{
+    width: pxToRem(60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: pxToRem(5px);
+
+    padding-top: pxToRem(8px);
+    padding-bottom: pxToRem(8px);
+    padding-left: pxToRem(12px);
+    padding-right: pxToRem(12px);
+    
+    h6{
+        color: variables.$main-gray;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+    svg{
+        height: pxToRem(12px);
+        stroke: variables.$main-gray;
+        fill: variables.$main-gray;
+        transition: 0.3s ease;
+    }
+}
+
+.selectorButton:hover{
+    
+    h6{
+        color: variables.$main-black;
+    }
+    svg{
+        stroke: variables.$main-black;
+        fill: variables.$main-black;
+    }
+}
+
+.activeSelectorButton{
+    
+    background-color: variables.$main-black;
+    h6{
+        color: white;
+    }
+    svg{
+        height: pxToRem(12px);
+        stroke: white;
+        fill: white;
+    }
+}
+
+.testsArea{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: pxToRem(20px);
+}
+
+.createTestButton{
+    @include testCard();
+    align-items: center;
+    transition: 0.1s ease-in;
+    svg{
+        transition: 0.1s ease-in;
+        height: pxToRem(100px);
+        fill: variables.$main-black;
+    }
+    h6{
+        text-align: center;
+        font-size: pxToRem(16px);
+        font-weight: bold;
+    }
+}
+
+.createTestButton:hover{
+    margin-top: pxToRem(10px);
+}
+
+.cardContent{
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.previousTestButton{
+    @include testCard();
+}
+
+
+.testCardHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+    gap: pxToRem(10px);
+    background-color: variables.$main-black;
+    h6{
+        color: white;
+        text-wrap: nowrap;
+    }
+    svg{
+        stroke: white;
+        height: pxToRem(18px);
+    }
+}
+
+
+.testCardBody{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: pxToRem(12px);
+    align-items: center;
+    p{
+        color: variables.$main-gray;
+    }
+}
+
+.testStatus{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: pxToRem(6px);
+    svg{
+        height: pxToRem(20px);
+        stroke: variables.$main-black;
+    }
+    p{
+        color: variables.$main-black;
+    }
+}

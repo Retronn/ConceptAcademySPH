@@ -1,0 +1,27 @@
+@use 'variables';
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+
+
+.scaleButton{
+    all: unset;
+    
+    position: absolute;
+    padding: pxToRem(8px);
+    width: pxToRem(16px);
+    height: pxToRem(16px);
+    background-color: white;
+    z-index: 10;
+    border-radius: 100%;
+    top: pxToRem(8px);
+    box-shadow:
+        0px 5px 5px rgb(0,0,0,0.15),
+        0px 0px 0px 1px rgb(0,0,0,0.03);
+    cursor: pointer;
+    
+}
+

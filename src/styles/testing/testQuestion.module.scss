@@ -1,0 +1,137 @@
+@use 'variables';
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+
+.testQuestion{
+    flex-grow: 1;
+    
+    
+}
+
+
+.questionZone{
+    margin-left: variables.$default-test-margin-sides;
+    margin-top: calc(variables.$default-test-margin-sides + pxToRem(16px));
+    margin-right: pxToRem(40px);
+    max-width: pxToRem(500px);
+    align-self: center;
+
+}
+
+.container{
+    flex: 1;
+    position: relative;
+    overflow:auto;
+}
+.innerContainer{
+    width: 100%;
+    height: 100%;
+    min-width: pxToRem(306px);
+    display: flex;
+    flex-direction: column;
+}
+
+.infoArea{
+    display: flex;
+    background-color:#F0F0F0;
+    width: 100%;
+    height: pxToRem(30px);
+    position: relative;
+}
+
+
+.questionNum{
+    background-color: variables.$main-dark-color;
+    height: 100%;
+    width: pxToRem(26px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h4{
+        font-size: pxToRem(18px);
+        font-weight: 700;
+        color: white;
+    }
+}
+
+.markReview{
+    all:unset;
+    display: flex;
+    align-items: center;
+    margin-left: pxToRem(12px);
+    cursor: pointer;
+    svg{
+        height: pxToRem(22px);
+    }
+
+
+}
+
+.crossOutArea{
+    flex-grow: 1;
+    display: flex;
+    padding-right: pxToRem(8px);
+    justify-content: end;
+    align-items: center;
+    svg{
+        height: pxToRem(20px);
+    }
+    
+}
+
+.crossButton{
+    all:unset;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1.5px solid variables.$main-dark-color;
+    padding-left: pxToRem(2.5px);
+    padding-right: pxToRem(2.5px);
+    padding-top: pxToRem(3px);
+    padding-bottom: pxToRem(3px);
+    border-radius: pxToRem(4px);
+    cursor: pointer;
+    svg{
+        height: pxToRem(16px);
+    }
+}
+
+.borderBox {
+    position: absolute;
+    top: 3.5px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    user-select: none;
+    z-index: -1;
+    path{
+        fill: none;
+        stroke: black;
+        stroke-width: 4;
+      }
+  }
+
+
+  .answerChoices{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .question{
+    margin-top: pxToRem(20px);
+  }
+
+  .blueBackground{
+    background-color: variables.$blue-color;
+  }
+
+
+.defaultOutline {
+    border: 1px solid #505050;
+    outline: none; 
+}

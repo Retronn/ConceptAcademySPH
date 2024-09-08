@@ -1,0 +1,219 @@
+@use 'variables';
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+
+
+.testHeader{
+    background-color: variables.$light-blue-color;
+    width: 100%;
+    svg{     
+        height: pxToRem(20px);
+    }
+}
+
+.gridContainer{   
+    display: grid;   
+    padding-left: variables.$default-test-margin-sides;
+    padding-right: variables.$default-test-margin-sides;
+    padding-top: pxToRem(15px);
+    padding-bottom: pxToRem(15px);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    position: relative;
+}
+
+
+
+.section{
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: pxToRem(14px);
+
+}
+
+
+.textWithIcon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    cursor: pointer;
+    h6 {
+        user-select: none;
+    }
+    
+}
+
+
+.moreSection{
+    flex-direction: row;
+    gap: pxToRem(20px);
+    align-items: center;
+    justify-content: end;
+}
+
+
+.centerIcons{
+    display: flex;
+    justify-content: center;
+
+}
+
+
+#timer{
+    align-self: center;
+}
+
+
+#hideTimerButton{
+    all: unset;
+    align-self: center;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: pxToRem(20px);
+    border-radius: 999rem;
+    padding-left: pxToRem(16px);
+    padding-right: pxToRem(16px);
+    padding-top: pxToRem(2px);
+    padding-bottom: pxToRem(2px);
+    border: pxToRem(1px) solid variables.$main-dark-color;
+    transition: 0.4s;
+      
+    
+}
+#hideTimerButton:hover{
+    box-shadow:0px 0px 0px 1px variables.$main-dark-color inset;
+    background-color: #f0f0f0;
+}
+
+
+
+.directions{
+    all:unset;
+    display: flex;
+    align-items: center;
+    gap: pxToRem(10px);
+    cursor: pointer;
+    h5{
+        font-weight: 500;
+        font-size: pxToRem(16px);
+    }
+    svg{
+        height: pxToRem(12px);
+    }
+}
+
+
+
+
+.timerBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: pxToRem(20px);
+}
+
+
+.directionsRules{
+    position: absolute;
+    background-color: white;
+    font-size: pxToRem(14px);
+    margin: pxToRem(42px);
+    padding: pxToRem(32px);
+    top: 100%;
+    margin-top: pxToRem(5px);
+    max-width: pxToRem(800px);
+    z-index: 30;
+    height: calc(100vh - 2*pxToRem(94px));
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(20px);
+    min-height: pxToRem(180px);
+    .buttonArea{
+        flex-grow: 1;
+        display: flex;
+        width: 100%;
+        justify-content: end;
+        align-items: end;
+    }
+}
+
+.closeButton{
+    all: unset;
+    background-color: variables.$yellow-color;
+    padding-left: pxToRem(22px);
+    padding-right: pxToRem(22px);
+    padding-top: pxToRem(12px);
+    padding-bottom: pxToRem(12px);
+    border-radius: 1000rem;
+    border: pxToRem(1px) solid variables.$main-dark-color;
+    font-size: pxToRem(14px);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.closeButton:hover{
+    box-shadow:0px 0px 0px 1px variables.$main-dark-color inset;
+}
+
+.directionsRules::after{
+    content: '';
+    position: absolute;
+    height: pxToRem(24px);
+    width: pxToRem(24px);
+    background-color: white;
+    top: calc(0% - 12px);
+    transform: rotate(45deg);
+}
+
+
+
+.moreContainer{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: pxToRem(100px);
+    right: pxToRem(40px);
+    background-color: white;
+    box-shadow: 0px 0px 10px 4px rgb(0,0,0,0.1);
+    border-radius: pxToRem(6px);
+    z-index: 100;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.moreOption{
+    all: unset;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: pxToRem(16px);
+    padding-right: pxToRem(24px);
+    padding-left: pxToRem(24px);
+    gap: pxToRem(12px);
+    
+    h5{
+        font-size: pxToRem(14px);
+    }
+    
+}
+
+.moreOption:hover{
+    background-color: #f0f0f0;
+    text-decoration: underline;
+}
+.topOption{
+    padding-top: pxToRem(24px);
+}
+.bottomOption{
+    padding-bottom: pxToRem(24px);
+}

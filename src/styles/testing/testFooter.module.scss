@@ -1,0 +1,258 @@
+@use 'variables';
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+
+@mixin darkButtons(){
+    cursor: pointer;
+    h5{
+        color: white;
+        font-weight: 700;
+    }
+}
+
+
+.section{
+    grid-column: span 4;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: pxToRem(20px);
+}
+
+
+.testFooter { 
+    background-color: variables.$light-blue-color;
+    width: 100%;
+    height: pxToRem(100px);
+    position: relative;
+    svg{     
+        height: pxToRem(20px);
+    }
+    
+}
+
+.gridContainer{   
+    display: grid;   
+    padding-left: variables.$default-test-margin-sides;
+    padding-right: variables.$default-test-margin-sides;
+    padding-top: pxToRem(15px);
+    padding-bottom: pxToRem(15px);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+}
+
+
+
+#testQuestionsButton{
+    border: none;
+    width: fit-content;
+    align-self: center;
+    background-color: variables.$main-dark-color;
+    padding-right: pxToRem(16px);
+    padding-left: pxToRem(16px);
+    padding-top: pxToRem(10px);
+    padding-bottom: pxToRem(10px);
+    border-radius: pxToRem(5px);
+    display: flex;
+    align-items: center;
+    gap: pxToRem(10px);
+    cursor: pointer;
+    @include darkButtons();
+    svg{
+        height: pxToRem(14px);
+    }
+}
+
+.buttonContainer{
+    height: 100%;
+    width: pxToRem(86px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nextQuestionButton{
+   background-color: variables.$blue-color; 
+   border-radius: 999rem;
+   padding-left: pxToRem(24px);
+   padding-right: pxToRem(24px);
+   padding-top: pxToRem(12px);
+   padding-bottom: pxToRem(12px);
+   transition: 0.5s;
+
+   @include darkButtons();
+   h5{
+    user-select: none;
+   }
+}
+
+.nextQuestionButtonClick{
+    text-decoration: underline;
+    text-decoration-color: white;
+    border: pxToRem(2px) solid variables.$blue-color; 
+    box-shadow:0px 0px 0px 1px variables.$light-blue-color inset;
+    transition: 0.08s;
+}
+
+.inactiveQuestionButton{
+    pointer-events: none;
+    background-color: #ecedef;
+    transition: 0.5s;
+    h5{
+        color: #bbbaba;
+    }
+    
+}
+
+
+.allQuestions{
+    position: absolute;
+    bottom: calc(100% + pxToRem(6px));
+    left: calc(50% - pxToRem(496px)/2 );
+    width: pxToRem(444px);
+    height: fit-content;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: pxToRem(8px);
+    gap: pxToRem(28px);
+    padding: pxToRem(24px);
+    box-shadow: 0px 0px 10px 4px rgb(0,0,0,0.1);
+}
+
+
+.allQuestions::after{
+    content: '';
+    position: absolute;
+    width: pxToRem(32px);
+    height: pxToRem(32px);
+    rotate: 45deg;
+    bottom: pxToRem(-16px);
+    left: calc(50% - pxToRem(16px));
+    background-color: white;
+
+
+}
+
+#sectionInfo{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    h4{
+        display: inline;
+        font-weight: bold;
+        font-size: pxToRem(18px);
+    }
+}
+
+.closeOverlay{
+    all: unset;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    padding-top: pxToRem(3px);
+    cursor: pointer;
+    svg{
+        height: pxToRem(18px);
+        width: pxToRem(18px);
+    }
+}
+
+
+
+#labelsInfo{
+    display: flex;
+    width: 100%;
+    padding-top: pxToRem(12px);
+    padding-bottom: pxToRem(12px);
+    position: relative;
+    justify-content: center;
+    gap: pxToRem(20px);
+}
+
+#labelsInfo::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: pxToRem(1px);
+    background-color: variables.$gray-color;
+    top: 0%; 
+}
+
+#labelsInfo::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: pxToRem(1px);
+    background-color: variables.$gray-color;
+    top: 100%; 
+    margin: 1px;
+}
+
+.iconWithText{
+    display: flex;
+    gap: pxToRem(8px);
+    align-items: center;
+    p{
+        font-size: pxToRem(14px);
+    }
+    svg{
+        width: pxToRem(16px);
+        height: pxToRem(16px);
+        padding: 0;
+        
+    }
+    
+}
+#bookmark{
+    gap: pxToRem(6px);
+}
+
+.dashedSqare{
+    width: pxToRem(16px);
+    height: pxToRem(16px);
+    background-image: url("dashedSqare.svg");
+}
+
+
+#questionsInfo{
+    display: grid;
+    margin-left: pxToRem(10px);
+    justify-content: start;
+    grid-template-columns: repeat(10, max-content);
+    gap: pxToRem(16px);
+}
+
+
+#reviewInfo{
+    display: flex;
+    justify-content: center;
+
+    button{
+        all: unset;
+        width: fit-content;
+        padding-left: pxToRem(18px);
+        padding-right: pxToRem(18px);
+        padding-top: pxToRem(10px);
+        padding-bottom: pxToRem(10px);
+        border: pxToRem(1px) solid variables.$blue-color;
+        border-radius: 1000rem;
+        font-size: pxToRem(14px);
+        font-weight: bold;
+        color: variables.$blue-color;
+        transition: 0.4s;
+        cursor: pointer;
+    }
+    button:hover{
+        box-shadow:0px 0px 0px 1px variables.$main-dark-color inset;
+    }
+}

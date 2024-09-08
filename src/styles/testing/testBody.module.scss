@@ -1,0 +1,171 @@
+@use 'variables';
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+
+.testBody{
+    display: flex;
+    
+    justify-content: space-between;
+    flex-grow: 1;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.borderBox {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    user-select: none;
+    z-index: -1;
+    path{
+        fill: none;
+        stroke: black;
+        stroke-width: 4;
+      }
+  }
+
+
+  #toolbar{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 10%;
+    width: fit-content;
+    background-color: white;
+    box-shadow: 0 1px 2px 0px rgb(0,0,0,0.3);
+    border-radius: 1000rem;
+    gap: pxToRem(10px);
+    padding: pxToRem(6px);
+    z-index: 30;
+  }
+
+
+  .highlight{
+    all: unset;
+    width: pxToRem(32px);
+    height: pxToRem(32px);
+    box-shadow:0px 0px 0px 1px #6b6b6b inset;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .highlight:hover{
+    box-shadow:0px 0px 0px 2px #6b6b6b inset;
+  }
+
+  .paintYellow{
+    background-color: #fffad7;
+  }
+
+  .paintYellow:hover{
+    background-color: #ffe898;
+  }
+
+  .paintBlue{
+    background-color: #e7f5ff;
+  }
+
+  .paintBlue:hover{
+    background-color: #b4dfff;
+  
+  }
+
+  .paintPink{
+    background-color: #ffe5f8;
+    
+  }
+
+  .paintPink:hover{
+    background-color: #fecff2;
+  }
+
+
+
+.divider{
+    width: pxToRem(1px);
+    height: pxToRem(20px);
+    background-color: #d9d9d9;
+}
+
+
+#addNote{
+  svg{
+    height: pxToRem(22px);
+  }
+}
+
+#addNote::after{
+  content: '+';
+  position: absolute;
+  top: pxToRem(9px);
+  font-size: pxToRem(10px);
+  color: #1f1f1f;
+}
+
+#deleteHighlight{
+  fill: #f0f0f0;
+  svg{
+    height: pxToRem(20px);
+  }
+}
+
+#deleteHighlight:hover{
+  background-color: #f0f0f0;
+  fill: white;
+}
+
+#chooseUndeline{
+
+  box-shadow: none;
+  gap: pxToRem(2px);
+  svg{
+    height: pxToRem(22px);
+    padding-right: pxToRem(6px);
+  }
+  .arrowIcon{
+    height: pxToRem(10px);
+    position: absolute;
+    top: 50%;
+    right: pxToRem(-10px);
+  }
+}
+
+#chooseUndeline::after{
+  content: '';
+  display: none;
+  position: absolute;
+  height: pxToRem(2px);
+  width: calc(100% + pxToRem(4px));
+  bottom: pxToRem(-2px);
+  background-color: #1f1f1f;
+}
+#chooseUndeline:hover::after{
+  display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+

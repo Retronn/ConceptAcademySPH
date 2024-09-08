@@ -1,0 +1,17 @@
+@use 'variables';
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+
+
+.modalOverlay{
+    position: absolute;
+    margin-top: pxToRem(88px);
+    width: 100%;
+    height: calc(100% - pxToRem(88px));
+    background-color: rgb(0, 0, 0, 0.4);
+    z-index: 20;
+}

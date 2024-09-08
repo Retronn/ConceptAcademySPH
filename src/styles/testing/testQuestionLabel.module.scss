@@ -1,0 +1,45 @@
+@use 'sass:math';
+
+@function pxToRem($pxValue) {
+    @return math.div($pxValue, 16px) * 1rem; 
+}
+
+.container{
+    height: 1.75rem;
+    width: 1.75rem;
+    background-image: url("bigDashedSqare.svg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #324DC7;
+    position: relative;
+    background-color: white;
+
+}
+
+.labelButton{
+    background-color: rgb(243, 0, 0);
+}
+
+
+.container:hover{
+    background-color: #f0f0f0;
+}
+
+
+.markedLabel{
+    position: absolute;
+    background-color: white;
+    width: pxToRem(16px);
+    height: pxToRem(16px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: calc(100% - pxToRem(8px));
+    left: calc(100% - pxToRem(8px));
+    border-radius: pxToRem(4px);
+    svg{
+        height: pxToRem(12px); 
+    }
+}

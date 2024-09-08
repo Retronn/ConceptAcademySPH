@@ -1,0 +1,67 @@
+import ScaleIcon from "./static/ScaleIcon";
+import styles from '../../styles/testing/scalingButton.module.scss'
+
+
+
+function ScalingButton(props: any){
+
+
+    const handleRescale = () => {
+        
+        if(props.scalerId==="testPassageScaler"){
+           
+            
+
+
+            if(props.resizePosition==="middle" || props.resizePosition==="part-right"){
+                props.scaleObject.current.style.width= "66%";
+                props.setResizePosition("right");
+                props.setTransformer({
+                    passage: "(-1,-1)",
+                    question: "(-1,1)",
+                })
+            }
+            else{
+                props.scaleObject.current.style.width= "calc(50% - 3px)";
+                props.setResizePosition("middle"); 
+                props.setTransformer({
+                    passage: "(1,1)",
+                    question: "(-1,1)",
+                })
+
+            }
+        }
+
+        else{
+
+            if(props.resizePosition==="middle" || props.resizePosition==="part-left"){
+                props.scaleObject.current.style.width= "33%";
+                props.setResizePosition("left");
+                props.setTransformer({
+                    passage: "(1,1)",
+                    question: "(1,-1)",
+                })
+            }
+            else{
+                props.scaleObject.current.style.width= "calc(50% - 3px)";
+                props.setResizePosition("middle"); 
+                props.setTransformer({
+                    passage: "(1,1)",
+                    question: "(-1,1)",
+                })
+            }
+
+        }
+    }
+
+    return(
+
+
+        <button id={props.scalerId} className={styles.scaleButton} onClick={handleRescale}>
+            <ScaleIcon color={props.color} transformer={props.transformer}/>
+        </button>
+    )
+}
+
+
+export default ScalingButton;
