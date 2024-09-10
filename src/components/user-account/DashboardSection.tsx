@@ -1,5 +1,6 @@
 import global from "../../styles/user-account/globalAccount.module.scss";
 import styles from "../../styles/user-account/dashboardPage.module.scss";
+import { Button } from "../ui/button";
 
 
 type DashboardProps =
@@ -39,11 +40,12 @@ function DashboardPage({isActive}: DashboardProps){
                         <h6 className={global.h6}>Predicted Score</h6>
 
                         <div className={styles.donutChart}>
-                            
+                                
                         </div>
 
+                        
                     </div>     
-
+                    <Button> Click me </Button>
 
             </div>
         </>

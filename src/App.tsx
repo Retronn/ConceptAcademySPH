@@ -8,8 +8,8 @@ function App(){
   return(
     <div className={global.App}>
 
-      <Test/>
-      {/* <AccountPage/> */}
+      {/* <Test/> */}
+      <AccountPage/>
     </div>
   )
 }
