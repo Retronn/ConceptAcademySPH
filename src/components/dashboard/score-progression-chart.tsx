@@ -20,11 +20,11 @@ export default function ScoreProgressionChart(){
             score: 620,
         },
         {
-            name: 'June 17',
+            name: 'June 20',
             score: 630,
         },
         {
-            name: 'June 18',
+            name: 'June 21',
             score: 650,
         },
 
@@ -34,8 +34,8 @@ export default function ScoreProgressionChart(){
     return(
         <div className="lg:col-span-7 col-span-12
         xl:col-span-7 2xl:col-span-5 
-        flex p-4 h-[28rem]" >
-                <Card className="w-full select-none">
+        flex p-4 h-[28rem] order-2" >
+                <Card className="w-full select-none p-1">
                     <CardHeader>
                     <div className="flex-col">
                         <h2 className="text-xl font-bold">Score Progression</h2>

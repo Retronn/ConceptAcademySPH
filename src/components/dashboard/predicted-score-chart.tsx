@@ -26,9 +26,9 @@ export default function PredictedScoreChart({ score = 650, change = { value: 150
 
     return (
 
-        <div className="lg:col-span-5 2xl:col-span-4 xl:col-span-5 col-span-12 h-[28rem] flex p-4" >
+        <div className="order-1 lg:col-span-5 2xl:col-span-4 xl:col-span-5 col-span-12 h-[28rem] flex p-4" >
 
-            <Card className="w-full pointer-events-none select-none">
+            <Card className="w-full pointer-events-none select-none p-1">
                 <CardHeader>
                     <div className="flex-col">
                         <h2 className="text-xl font-bold">Predicted Score</h2>

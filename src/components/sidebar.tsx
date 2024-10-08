@@ -26,8 +26,16 @@ import { Divider } from "@nextui-org/divider";
 import {  Dropdown,  DropdownTrigger,  DropdownMenu,  DropdownSection,  DropdownItem} from "@nextui-org/dropdown";
 import {User} from "@nextui-org/user";
 import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/avatar";
-export const Sidebar = () => {
+import { useState } from "react";
+
+type SidebarProps ={
+  activeSection: string
+}
+
+export const Sidebar = ({activeSection}:SidebarProps) => {
   
+  
+
 
   return (
     <aside className="h-screen">
@@ -50,23 +58,23 @@ export const Sidebar = () => {
 
 
         <ul className="mx-4">
-          <SidebarItem icon={DashboardIcon} label="Dashboard" href="/" isActive/>
+          <SidebarItem icon={DashboardIcon} label="Dashboard" href="/" isActive={activeSection=="Dashboard"}/>
 
-          <SidebarItem icon={ComputerIcon} label="My Tests" href="/" />
+          <SidebarItem icon={ComputerIcon} label="My Tests" href="/tests" isActive={activeSection=="My Tests"}/>
 
-          <SidebarItem icon={FocusIcon} label="Focus Areas" href="/" hasNewInfo/>
+          <SidebarItem icon={FocusIcon} label="Focus Areas" href="/focus" isActive={activeSection=="Focus Areas"} hasNewInfo/>
 
-          <SidebarItem icon={StarIcon} label="Favorites" href="/" />
+          <SidebarItem icon={StarIcon} label="Favorites" href="/" isActive={activeSection=="Favorites"} isDisabled/>
 
-          <SidebarItem icon={BlogIcon} label="Blog" href="/" />
+          <SidebarItem icon={BlogIcon} label="Blog" href="/" isActive={activeSection=="Blog"} isDisabled/>
 
-          <SidebarItem icon={ShopIcon} label="Shop" href="/" />
+          <SidebarItem icon={ShopIcon} label="Shop" href="/" isActive={activeSection=="Shop"} isDisabled/>
 
           <Divider className="my-5"/>
 
-          <SidebarItem icon={SupportIcon} label="Support" href="/" />
+          <SidebarItem icon={SupportIcon} label="Support" href="/" isDisabled/>
 
-          <SidebarItem icon={SettingsIcon} label="Settings" href="/" />
+          <SidebarItem icon={SettingsIcon} label="Settings" href="/" isDisabled/>
 
         </ul>
 
@@ -119,16 +127,19 @@ type SidebarItem = {
   href: string,
   isActive?:boolean,
   hasNewInfo?: boolean,
+  isDisabled?:boolean,
 }
-const SidebarItem = ({ icon: Icon, label, href, isActive=false, hasNewInfo=false, }:SidebarItem) => {
+const SidebarItem = ({ icon: Icon, label, href, isActive=false, hasNewInfo=false, isDisabled=false}:SidebarItem) => {
   return (
-    <li>
+    <li >
       <Link
-        className={`flex justify-between items-center rounded-md my-1 px-2 py-2.5 after:rounded-md 
+        className={`flex justify-between items-center rounded-md my-1 px-2 py-2.5 after:rounded-md select-none 
                     ${(isActive) ? "bg-default-200 after:hidden" : ""}`}
         color="foreground"
+        isDisabled={isDisabled}
         href={href}
         isBlock
+        
       >
         <div className="flex items-center gap-2">
           {Icon && <Icon size={18}/>}

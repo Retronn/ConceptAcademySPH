@@ -4,15 +4,17 @@ import { Sidebar } from "@/components/sidebar";
 
 export default function DefaultLayout({
   children,
+  activeSection
 }: {
   children: React.ReactNode;
+  activeSection: string,
 }) {
   return (
     <div className="relative flex h-screen">
-      <Sidebar />
+      <Sidebar activeSection={activeSection}/>
 
       <div className="flex flex-col h-full w-full">
-        <main className="container mx-auto max-h-full px-6 flex-grow pt-10">
+        <main className="max-h-full flex-grow px-6 w-full pt-10">
           {children}
         </main>
 

@@ -3,52 +3,14 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: "Vite + NextUI",
   description: "Make beautiful websites regardless of your design experience.",
-  navItems: [
+  sidebarItems: [
     {
       label: "Dashboard",
       href: "/",
     },
     {
-      label: "Tests",
-      href: "/docs",
-    },
-    {
-      label: "Focus",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "Favorites",
-      href: "/about",
-    },
-  ],
-  navMenuItems: [
-    {
-      label: "Profile",
-      href: "/profile",
-    },
-    {
-      label: "Dashboard",
-      href: "/",
-    },
-    {
-      label: "Tests",
-      href: "/docs",
-    },
-    {
-      label: "Focus",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "Favorites",
-      href: "/about",
+      label: "Focus Areas",
+      href: "/focus",
     },
   ],
   links: {

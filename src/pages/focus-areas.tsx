@@ -2,7 +2,6 @@ import { Link } from "@nextui-org/link";
 import { Snippet } from "@nextui-org/snippet";
 import { Code } from "@nextui-org/code";
 import { button as buttonStyles } from "@nextui-org/theme";
-
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
@@ -15,21 +14,21 @@ import UserStreak from "@/components/dashboard/user-streak";
 import PerformanceComparisonChart from "@/components/dashboard/performance-comparison-chart";
 import WorstTimeChart from "@/components/dashboard/worst-time-chart";
 
-export default function IndexPage() {
+export default function FocusAreasPage() {
   return (
-    <DefaultLayout activeSection="Dashboard">
+    <DefaultLayout activeSection="Focus Areas">
       <section className="flex flex-col gap-4 h-full w-full">
       
       <div className="flex gap-10 items-center">
-        <h1 className="text-2xl font-bold">Dashboard</h1>
-        <Tabs aria-label="Options" defaultSelectedKey="verbal" disabledKeys={["math"]} radius="sm"  >
-          <Tab key="verbal" title="Verbal"/>
+        <h1 className="text-2xl font-bold">Focus Areas</h1>
+        <Tabs aria-label="Options" defaultSelectedKey="english" disabledKeys={["math"]} radius="sm"  >
+          <Tab key="english" title="English"/>
           <Tab key="math" title="Math"/>
         </Tabs>
       </div>
-
+      
       <ScrollShadow className="grid grid-cols-12 flex-grow">
-            
+          
           <PredictedScoreChart/>
           <ScoreProgressionChart/>
           <UserStreak/>
